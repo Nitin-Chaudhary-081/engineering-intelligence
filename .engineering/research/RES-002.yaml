@@ -1,0 +1,12 @@
+id: RES-002
+topic: OpenCode Skills
+question: How OpenCode discovers skills
+sources:
+  - url: https://opencode.ai/docs/skills/
+    title: OpenCode Skills Docs
+    kind: FACT
+findings:
+  - Searches .opencode/skills, .claude/skills, .agents/skills at project and global, via skill tool
+confidence: high
+kind: FACT
+createdAt: '2026-08-27T19:13:31.069Z'

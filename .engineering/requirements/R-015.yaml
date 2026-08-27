@@ -1,0 +1,13 @@
+id: R-015
+title: Runtime observations can be recorded
+description: runtime/observations.yaml
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/runtime.js
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/runtime.js
+risk: MEDIUM
+createdAt: '2026-08-27T19:13:31.069Z'

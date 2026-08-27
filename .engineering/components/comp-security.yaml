@@ -1,0 +1,6 @@
+id: comp-security
+name: Security
+type: component
+files:
+  - src/lib/security.js
+status: VERIFIED

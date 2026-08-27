@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ArchitectureGraph",
+  "type": "object",
+  "required": ["nodes", "edges"],
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string", "enum": ["File","Component","Service","Database","API","Dependency"] },
+          "label": { "type": "string" },
+          "evidence": { "type": "string" },
+          "verification": { "type": "string" }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "relationship"],
+        "properties": {
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "relationship": { "type": "string", "enum": ["depends_on","implements","calls","imports","reads","writes","produces","consumes","tested_by","protected_by","configured_by","deployed_by","derived_from","affects","contradicts","replaces"] },
+          "evidence": { "type": "string" }
+        }
+      }
+    },
+    "builtAt": { "type": "string" }
+  }
+}

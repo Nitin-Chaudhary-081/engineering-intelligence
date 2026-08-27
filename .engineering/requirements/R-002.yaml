@@ -1,0 +1,28 @@
+id: R-002
+title: Universal engineering-state format exists
+description: YAML schemas for Project/Requirement/Component etc. in src/schemas/
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/schemas/manifest.schema.json
+    kind: FACT
+    details: file exists
+  - type: CODE
+    source: src/schemas/requirement.schema.json
+    kind: FACT
+    details: file exists
+  - type: CODE
+    source: src/schemas/architecture.schema.json
+    kind: FACT
+    details: file exists
+  - type: CODE
+    source: src/lib/store.js
+    kind: FACT
+    details: file exists
+files:
+  - src/schemas/manifest.schema.json
+  - src/schemas/requirement.schema.json
+  - src/schemas/architecture.schema.json
+  - src/lib/store.js
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

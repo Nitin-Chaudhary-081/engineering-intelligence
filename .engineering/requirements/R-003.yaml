@@ -1,0 +1,18 @@
+id: R-003
+title: Repository-local .engineering state works
+description: Atomic YAML I/O, hash, events JSONL
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/store.js
+    kind: FACT
+    details: file exists
+  - type: CODE
+    source: .engineering/manifest.yaml
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/store.js
+  - .engineering/manifest.yaml
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

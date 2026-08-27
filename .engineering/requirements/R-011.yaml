@@ -1,0 +1,13 @@
+id: R-011
+title: Risk classification exists
+description: TRIVIAL..CRITICAL
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/risk.js
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/risk.js
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

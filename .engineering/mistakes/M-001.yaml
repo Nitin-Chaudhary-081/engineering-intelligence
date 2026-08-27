@@ -1,0 +1,9 @@
+id: M-001
+problem: Security audit false FAILED due to test fixture containing secret pattern
+attempt: Regex matched synthetic sk-... in tests/security.test.js
+rootCause: No exclusion for tests/ in secret scan
+resolution: Exclude tests/ and examples/ from SEC-SECRETS check
+evidence: src/lib/security.js:66
+doNotRepeat: Add allow-list for test fixtures or use synthetic tokens that avoid secret regex
+severity: info
+createdAt: '2026-08-27T19:13:31.069Z'

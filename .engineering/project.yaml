@@ -1,0 +1,38 @@
+languages:
+  counts:
+    markdown: 8
+    javascript: 28
+    json: 5
+  primary: javascript
+  totalFiles: 41
+frameworks: []
+packageManagers:
+  - npm
+entryPoints: []
+config:
+  - .gitignore
+git:
+  branch: unknown
+  commit: unknown
+  log: []
+  dirty: false
+  status: []
+envVars: []
+dependencies:
+  js-yaml: ^4.1.0
+structure:
+  - CHANGELOG.md
+  - CONTRIBUTING.md
+  - LICENSE
+  - README.md
+  - SECURITY.md
+  - bin/
+  - docs/
+  - examples/
+  - package-lock.json
+  - package.json
+  - skills/
+  - src/
+  - tests/
+projectType: javascript-project
+analyzedAt: '2026-08-27T19:11:56.434Z'

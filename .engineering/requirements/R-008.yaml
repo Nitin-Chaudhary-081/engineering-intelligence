@@ -1,0 +1,13 @@
+id: R-008
+title: Data flow can be represented
+description: architecture/dataflow.yaml
+status: PARTIALLY_IMPLEMENTED
+evidence:
+  - type: CODE
+    source: .engineering/architecture/dataflow.yaml
+    kind: FACT
+    details: file exists
+files:
+  - .engineering/architecture/dataflow.yaml
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

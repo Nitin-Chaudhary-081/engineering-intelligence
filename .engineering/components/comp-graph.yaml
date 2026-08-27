@@ -1,0 +1,7 @@
+id: comp-graph
+name: Graph
+type: component
+description: Dependency graph + impact
+files:
+  - src/lib/graph.js
+status: VERIFIED

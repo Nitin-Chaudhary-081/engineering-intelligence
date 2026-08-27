@@ -1,0 +1,10 @@
+id: comp-cli
+name: CLI
+type: component
+description: bin/engineering.js entry point
+files:
+  - bin/engineering.js
+depends_on:
+  - comp-store
+  - comp-analyzer
+status: VERIFIED

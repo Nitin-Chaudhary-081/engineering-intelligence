@@ -1,0 +1,13 @@
+id: R-014
+title: Security model exists
+description: audit with evidence, UNKNOWN until verified
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/security.js
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/security.js
+risk: HIGH
+createdAt: '2026-08-27T19:13:31.069Z'

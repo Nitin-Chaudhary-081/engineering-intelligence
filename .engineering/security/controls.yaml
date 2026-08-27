@@ -1,0 +1,52 @@
+findings:
+  - id: SEC-AUTH-001
+    claim: Authentication exists
+    status: IMPLEMENTED
+    evidence:
+      - type: CODE
+        source: static scan
+        kind: FACT
+        details: Pattern matched for Authentication exists
+    verified: false
+  - id: SEC-INJECTION-001
+    claim: SQL injection protection exists
+    status: IMPLEMENTED
+    evidence:
+      - type: CODE
+        source: static scan
+        kind: FACT
+        details: Pattern matched for SQL injection protection exists
+    verified: false
+  - id: SEC-SECRETS-001
+    claim: Secrets not committed
+    status: VERIFIED
+    evidence:
+      - type: CODE
+        source: scan
+        kind: FACT
+        details: No secret patterns detected in sampled files
+    verified: true
+  - id: SEC-VALIDATION-001
+    claim: Input validation exists
+    status: IMPLEMENTED
+    evidence:
+      - type: CODE
+        source: static scan
+        kind: FACT
+        details: Pattern matched for Input validation exists
+    verified: false
+  - id: SEC-DEPS-001
+    claim: Dependencies have no known vulnerabilities
+    status: VERIFIED
+    evidence:
+      - type: COMMAND
+        source: npm audit
+        kind: FACT
+        details: 0 vulnerabilities
+    verified: true
+summary:
+  total: 5
+  verified: 2
+  failed: 0
+  unknown: 0
+auditedAt: '2026-08-27T19:16:14.178Z'

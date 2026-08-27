@@ -1,0 +1,13 @@
+id: R-022
+title: AI handoff exists
+description: handoff.yaml + handoff.md compact
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/handoff.js
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/handoff.js
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

@@ -1,0 +1,102 @@
+timestamp: '2026-08-27T19:13:54.746Z'
+tests:
+  ran: true
+  output: |-
+
+    > engineering-intelligence@0.1.0 test
+    > node --test tests/*.test.js
+
+    TAP version 13
+    # Subtest: evidence
+        # Subtest: UNKNOWN when no evidence
+        ok 1 - UNKNOWN when no evidence
+          ---
+          duration_ms: 1.309213
+          ...
+        # Subtest: VERIFIED with code+fact
+        ok 2 - VERIFIED with code+fact
+          ---
+          duration_ms: 0.759617
+          ...
+        # Subtest: IMPLEMENTED with fact but not runtime
+        ok 3 - IMPLEMENTED with fact but not runtime
+          ---
+          duration_ms: 0.334075
+          ...
+        # Subtest: security claim stays UNKNOWN if only docs
+        ok 4 - security claim stays UNKNOWN if only docs
+          ---
+          duration_ms: 0.42089
+          ...
+        # Subtest: does NOT mark UNKNOWN as VERIFIED
+        ok 5 - does NOT mark UNKNOWN as VERIFIED
+          ---
+          duration_ms: 0.337588
+          ...
+        1..5
+    ok 1 - evidence
+      ---
+      duration_ms: 8.358031
+      type: 'suite'
+      ...
+    # Subtest: graph
+        # Subtest: extractImports js
+        ok 1 - extractImports js
+          ---
+          duration_ms: 1.706235
+          ...
+        # Subtest: buildGraph and impact
+        ok 2 - buildGraph and impact
+          ---
+          duration_ms: 11.069028
+          ...
+        # Subtest: detect cycles
+        ok 3 - detect cycles
+          ---
+          duration_ms: 0.912134
+          ...
+        # Subtest: no false cycles
+        ok 4 - no false cycles
+          ---
+          duration_ms: 2.066109
+          ...
+        1..4
+    ok 2 - graph
+      ---
+      duration_ms: 20.953929
+      type: 'suite'
+      ...
+    # Subtest: handoff
+        # Subtest: generates handoff with required fields
+        ok 1 - generates handoff with required fields
+          ---
+          duration_ms: 30.955354
+          ...
+        1..1
+    ok 3 - handoff
+      ---
+      duration_ms: 35.398097
+      type: 'suite'
+      ...
+    # Subtest: progress
+        # Subtest: computes weighted completeness
+        ok 1 - computes weighted completeness
+          ---
+          duration_ms: 1.970243
+          ...
+        # Subtest: caps without evidence
+        ok 2 - caps without evidence
+          ---
+          duration_ms: 1.189542
+          ...
+        # Subtest: low dims handled
+        ok 3 - low dims handled
+          ---
+     
+  status: PASS
+startup: null
+dependencies: null
+codeExists: true
+codeWorks: VERIFIED
+systemVerified: PARTIAL
+note: CODE EXISTS != CODE WORKS. Run full verification for SYSTEM VERIFIED.

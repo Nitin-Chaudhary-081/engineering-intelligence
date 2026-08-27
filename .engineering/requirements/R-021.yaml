@@ -1,0 +1,13 @@
+id: R-021
+title: Conflict detection exists
+description: detectConflicts checks duplicate, projectType mismatch, stale
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/verify.js
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/verify.js
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

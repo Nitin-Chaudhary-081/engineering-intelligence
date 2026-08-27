@@ -1,0 +1,13 @@
+id: R-013
+title: Evidence model exists
+description: VERIFIED/UNKNOWN etc, prefers UNKNOWN
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/evidence.js
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/evidence.js
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

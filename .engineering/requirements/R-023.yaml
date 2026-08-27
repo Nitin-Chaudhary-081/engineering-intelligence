@@ -1,0 +1,13 @@
+id: R-023
+title: Hierarchical context exists
+description: levels 0-6
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/context.js
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/context.js
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

@@ -1,0 +1,898 @@
+level0: >-
+  Project engineering-intelligence — javascript-project. Primary language javascript. 41 files, 96
+  dependencies.
+level1:
+  architecture:
+    nodes:
+      - id: CHANGELOG.md
+        type: File
+        label: CHANGELOG.md
+        path: CHANGELOG.md
+        ext: .md
+        size: 1549
+        hash: 3af46f8aa66f
+        language: md
+        evidence: CODE
+        verification: VERIFIED
+      - id: CONTRIBUTING.md
+        type: File
+        label: CONTRIBUTING.md
+        path: CONTRIBUTING.md
+        ext: .md
+        size: 1529
+        hash: c83a56eeaeb2
+        language: md
+        evidence: CODE
+        verification: VERIFIED
+      - id: README.md
+        type: File
+        label: README.md
+        path: README.md
+        ext: .md
+        size: 9199
+        hash: 0abb1e39eef8
+        language: md
+        evidence: CODE
+        verification: VERIFIED
+      - id: SECURITY.md
+        type: File
+        label: SECURITY.md
+        path: SECURITY.md
+        ext: .md
+        size: 1203
+        hash: bba9d8d21934
+        language: md
+        evidence: CODE
+        verification: VERIFIED
+      - id: bin/engineering.js
+        type: File
+        label: engineering.js
+        path: bin/engineering.js
+        ext: .js
+        size: 22339
+        hash: ec551c6ca572
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: docs/architecture.md
+        type: File
+        label: architecture.md
+        path: docs/architecture.md
+        ext: .md
+        size: 4724
+        hash: 6b164e5669f5
+        language: md
+        evidence: CODE
+        verification: VERIFIED
+      - id: docs/installation.md
+        type: File
+        label: installation.md
+        path: docs/installation.md
+        ext: .md
+        size: 3427
+        hash: 2026653f7042
+        language: md
+        evidence: CODE
+        verification: VERIFIED
+      - id: docs/protocol.md
+        type: File
+        label: protocol.md
+        path: docs/protocol.md
+        ext: .md
+        size: 3442
+        hash: 7ff3b2375b7d
+        language: md
+        evidence: CODE
+        verification: VERIFIED
+      - id: package-lock.json
+        type: File
+        label: package-lock.json
+        path: package-lock.json
+        ext: .json
+        size: 1355
+        hash: 6f25647c7c55
+        language: json
+        evidence: CODE
+        verification: VERIFIED
+      - id: package.json
+        type: File
+        label: package.json
+        path: package.json
+        ext: .json
+        size: 1310
+        hash: 9ab9ccd96004
+        language: json
+        evidence: CODE
+        verification: VERIFIED
+      - id: skills/engineering/SKILL.md
+        type: File
+        label: SKILL.md
+        path: skills/engineering/SKILL.md
+        ext: .md
+        size: 4956
+        hash: fafecda3c75b
+        language: md
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/complexity.js
+        type: File
+        label: complexity.js
+        path: src/lib/complexity.js
+        ext: .js
+        size: 3541
+        hash: 8db1cd4eee93
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/constants.js
+        type: File
+        label: constants.js
+        path: src/lib/constants.js
+        ext: .js
+        size: 2626
+        hash: 3c7321506a82
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/context.js
+        type: File
+        label: context.js
+        path: src/lib/context.js
+        ext: .js
+        size: 2454
+        hash: 6311ac81e614
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/contracts.js
+        type: File
+        label: contracts.js
+        path: src/lib/contracts.js
+        ext: .js
+        size: 1287
+        hash: 5dda04042a3b
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/events.js
+        type: File
+        label: events.js
+        path: src/lib/events.js
+        ext: .js
+        size: 494
+        hash: f749860e9750
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/evidence.js
+        type: File
+        label: evidence.js
+        path: src/lib/evidence.js
+        ext: .js
+        size: 2852
+        hash: d6430a7d4927
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/explain.js
+        type: File
+        label: explain.js
+        path: src/lib/explain.js
+        ext: .js
+        size: 3105
+        hash: e6f5ab9d8f1a
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/git.js
+        type: File
+        label: git.js
+        path: src/lib/git.js
+        ext: .js
+        size: 2441
+        hash: dd645bf04dec
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/graph.js
+        type: File
+        label: graph.js
+        path: src/lib/graph.js
+        ext: .js
+        size: 6705
+        hash: 0aea91403cf5
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/handoff.js
+        type: File
+        label: handoff.js
+        path: src/lib/handoff.js
+        ext: .js
+        size: 5445
+        hash: fc4ccab77ad9
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/impact.js
+        type: File
+        label: impact.js
+        path: src/lib/impact.js
+        ext: .js
+        size: 127
+        hash: 75cd6825a613
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/progress.js
+        type: File
+        label: progress.js
+        path: src/lib/progress.js
+        ext: .js
+        size: 3156
+        hash: 37ab28fa8f61
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/project-analyzer.js
+        type: File
+        label: project-analyzer.js
+        path: src/lib/project-analyzer.js
+        ext: .js
+        size: 8166
+        hash: 39ea5584bc65
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/research.js
+        type: File
+        label: research.js
+        path: src/lib/research.js
+        ext: .js
+        size: 916
+        hash: 7769eb88051e
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/risk.js
+        type: File
+        label: risk.js
+        path: src/lib/risk.js
+        ext: .js
+        size: 2675
+        hash: a78b5764db0b
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/runtime.js
+        type: File
+        label: runtime.js
+        path: src/lib/runtime.js
+        ext: .js
+        size: 1087
+        hash: 6aea2a2dd318
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/security.js
+        type: File
+        label: security.js
+        path: src/lib/security.js
+        ext: .js
+        size: 4247
+        hash: 4d62e4c88d65
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/store.js
+        type: File
+        label: store.js
+        path: src/lib/store.js
+        ext: .js
+        size: 7166
+        hash: 17ff0cfb119b
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/lib/verify.js
+        type: File
+        label: verify.js
+        path: src/lib/verify.js
+        ext: .js
+        size: 3876
+        hash: 00deba8ae3e1
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/schemas/architecture.schema.json
+        type: File
+        label: architecture.schema.json
+        path: src/schemas/architecture.schema.json
+        ext: .json
+        size: 1202
+        hash: 21814a44c282
+        language: json
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/schemas/manifest.schema.json
+        type: File
+        label: manifest.schema.json
+        path: src/schemas/manifest.schema.json
+        ext: .json
+        size: 744
+        hash: 4ebfa2bd1943
+        language: json
+        evidence: CODE
+        verification: VERIFIED
+      - id: src/schemas/requirement.schema.json
+        type: File
+        label: requirement.schema.json
+        path: src/schemas/requirement.schema.json
+        ext: .json
+        size: 1170
+        hash: cccb71adae2d
+        language: json
+        evidence: CODE
+        verification: VERIFIED
+      - id: tests/evidence.test.js
+        type: File
+        label: evidence.test.js
+        path: tests/evidence.test.js
+        ext: .js
+        size: 2054
+        hash: ffa90bc08b32
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: tests/graph.test.js
+        type: File
+        label: graph.test.js
+        path: tests/graph.test.js
+        ext: .js
+        size: 1974
+        hash: 5d598e057c18
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: tests/handoff.test.js
+        type: File
+        label: handoff.test.js
+        path: tests/handoff.test.js
+        ext: .js
+        size: 1162
+        hash: 712d302d6cfe
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: tests/progress.test.js
+        type: File
+        label: progress.test.js
+        path: tests/progress.test.js
+        ext: .js
+        size: 1646
+        hash: e0fc3420cea4
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: tests/risk.test.js
+        type: File
+        label: risk.test.js
+        path: tests/risk.test.js
+        ext: .js
+        size: 997
+        hash: b81c5483970d
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: tests/security.test.js
+        type: File
+        label: security.test.js
+        path: tests/security.test.js
+        ext: .js
+        size: 1172
+        hash: 70ae989d4303
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: tests/store.test.js
+        type: File
+        label: store.test.js
+        path: tests/store.test.js
+        ext: .js
+        size: 1992
+        hash: 0889a7df75a9
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+      - id: tests/verify.test.js
+        type: File
+        label: verify.test.js
+        path: tests/verify.test.js
+        ext: .js
+        size: 2077
+        hash: 12edad1e4ec5
+        language: js
+        evidence: CODE
+        verification: VERIFIED
+    edges:
+      - from: bin/engineering.js
+        to: node:fs
+        relationship: depends_on
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: node:path
+        relationship: depends_on
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: node:url
+        relationship: depends_on
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: js-yaml
+        relationship: depends_on
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: src/lib/store.js
+        relationship: imports
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: src/lib/project-analyzer.js
+        relationship: imports
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: src/lib/graph.js
+        relationship: imports
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: src/lib/risk.js
+        relationship: imports
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: src/lib/progress.js
+        relationship: imports
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: src/lib/security.js
+        relationship: imports
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: src/lib/complexity.js
+        relationship: imports
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: src/lib/verify.js
+        relationship: imports
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: src/lib/explain.js
+        relationship: imports
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: src/lib/handoff.js
+        relationship: imports
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: src/lib/context.js
+        relationship: imports
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: src/lib/runtime.js
+        relationship: imports
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: src/lib/constants.js
+        relationship: imports
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: src/lib/contracts.js
+        relationship: imports
+        evidence: INFERRED
+      - from: bin/engineering.js
+        to: src/lib/git.js
+        relationship: imports
+        evidence: INFERRED
+      - from: src/lib/complexity.js
+        to: node:fs
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/complexity.js
+        to: node:path
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/complexity.js
+        to: src/lib/constants.js
+        relationship: imports
+        evidence: INFERRED
+      - from: src/lib/evidence.js
+        to: src/lib/constants.js
+        relationship: imports
+        evidence: INFERRED
+      - from: src/lib/git.js
+        to: node:child_process
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/git.js
+        to: node:fs
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/git.js
+        to: node:path
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/graph.js
+        to: node:fs
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/graph.js
+        to: node:path
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/graph.js
+        to: node:crypto
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/progress.js
+        to: src/lib/constants.js
+        relationship: imports
+        evidence: INFERRED
+      - from: src/lib/project-analyzer.js
+        to: node:fs
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/project-analyzer.js
+        to: node:path
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/project-analyzer.js
+        to: node:child_process
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/research.js
+        to: src/lib/constants.js
+        relationship: imports
+        evidence: INFERRED
+      - from: src/lib/risk.js
+        to: src/lib/constants.js
+        relationship: imports
+        evidence: INFERRED
+      - from: src/lib/runtime.js
+        to: node:child_process
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/security.js
+        to: node:fs
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/security.js
+        to: node:path
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/security.js
+        to: src/lib/constants.js
+        relationship: imports
+        evidence: INFERRED
+      - from: src/lib/store.js
+        to: node:fs
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/store.js
+        to: node:path
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/store.js
+        to: node:crypto
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/store.js
+        to: js-yaml
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/store.js
+        to: src/lib/constants.js
+        relationship: imports
+        evidence: INFERRED
+      - from: src/lib/verify.js
+        to: node:fs
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/verify.js
+        to: node:path
+        relationship: depends_on
+        evidence: INFERRED
+      - from: src/lib/verify.js
+        to: src/lib/constants.js
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/evidence.test.js
+        to: node:test
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/evidence.test.js
+        to: node:assert/strict
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/evidence.test.js
+        to: src/lib/evidence.js
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/evidence.test.js
+        to: src/lib/constants.js
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/graph.test.js
+        to: node:test
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/graph.test.js
+        to: node:assert/strict
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/graph.test.js
+        to: node:fs
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/graph.test.js
+        to: node:path
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/graph.test.js
+        to: node:os
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/graph.test.js
+        to: src/lib/graph.js
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/graph.test.js
+        to: tests/bar
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/graph.test.js
+        to: lodash
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/graph.test.js
+        to: dynamic
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/graph.test.js
+        to: tests/b.js
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/graph.test.js
+        to: tests/c.js
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/graph.test.js
+        to: tests/y.js
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/handoff.test.js
+        to: node:test
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/handoff.test.js
+        to: node:assert/strict
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/handoff.test.js
+        to: node:fs
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/handoff.test.js
+        to: node:path
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/handoff.test.js
+        to: node:os
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/handoff.test.js
+        to: src/lib/store.js
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/handoff.test.js
+        to: src/lib/handoff.js
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/progress.test.js
+        to: node:test
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/progress.test.js
+        to: node:assert/strict
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/progress.test.js
+        to: src/lib/progress.js
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/risk.test.js
+        to: node:test
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/risk.test.js
+        to: node:assert/strict
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/risk.test.js
+        to: src/lib/risk.js
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/security.test.js
+        to: node:test
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/security.test.js
+        to: node:assert/strict
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/security.test.js
+        to: node:fs
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/security.test.js
+        to: node:path
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/security.test.js
+        to: node:os
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/security.test.js
+        to: src/lib/security.js
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/store.test.js
+        to: node:test
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/store.test.js
+        to: node:assert/strict
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/store.test.js
+        to: node:fs
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/store.test.js
+        to: node:path
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/store.test.js
+        to: node:os
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/store.test.js
+        to: src/lib/store.js
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/store.test.js
+        to: src/lib/evidence.js
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/verify.test.js
+        to: node:test
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/verify.test.js
+        to: node:assert/strict
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/verify.test.js
+        to: node:fs
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/verify.test.js
+        to: node:path
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/verify.test.js
+        to: node:os
+        relationship: depends_on
+        evidence: INFERRED
+      - from: tests/verify.test.js
+        to: src/lib/store.js
+        relationship: imports
+        evidence: INFERRED
+      - from: tests/verify.test.js
+        to: src/lib/verify.js
+        relationship: imports
+        evidence: INFERRED
+    builtAt: '2026-08-27T19:11:56.499Z'
+  dataflow:
+    flows: []
+    note: Dataflow INFERRED from imports; verify with runtime
+    generatedAt: '2026-08-27T19:11:56.537Z'
+  decisions: []
+  graphSummary:
+    nodes: 41
+    edges: 96
+level2:
+  subsystems: []
+  structure:
+    - CHANGELOG.md
+    - CONTRIBUTING.md
+    - LICENSE
+    - README.md
+    - SECURITY.md
+    - bin/
+    - docs/
+    - examples/
+    - package-lock.json
+    - package.json
+    - skills/
+    - src/
+    - tests/
+level3:
+  components: []
+level4:
+  files:
+    - path: CHANGELOG.md
+      size: 1549
+      hash: 3af46f8aa66f
+    - path: CONTRIBUTING.md
+      size: 1529
+      hash: c83a56eeaeb2
+    - path: README.md
+      size: 9199
+      hash: 0abb1e39eef8
+    - path: SECURITY.md
+      size: 1203
+      hash: bba9d8d21934
+    - path: bin/engineering.js
+      size: 22339
+      hash: ec551c6ca572
+    - path: docs/architecture.md
+      size: 4724
+      hash: 6b164e5669f5
+    - path: docs/installation.md
+      size: 3427
+      hash: 2026653f7042
+    - path: docs/protocol.md
+      size: 3442
+      hash: 7ff3b2375b7d
+    - path: package-lock.json
+      size: 1355
+      hash: 6f25647c7c55
+    - path: package.json
+      size: 1310
+      hash: 9ab9ccd96004
+    - path: skills/engineering/SKILL.md
+      size: 4956
+      hash: fafecda3c75b
+    - path: src/lib/complexity.js
+      size: 3541
+      hash: 8db1cd4eee93
+    - path: src/lib/constants.js
+      size: 2626
+      hash: 3c7321506a82
+    - path: src/lib/context.js
+      size: 2454
+      hash: 6311ac81e614
+    - path: src/lib/contracts.js
+      size: 1287
+      hash: 5dda04042a3b
+    - path: src/lib/events.js
+      size: 494
+      hash: f749860e9750
+    - path: src/lib/evidence.js
+      size: 2852
+      hash: d6430a7d4927
+    - path: src/lib/explain.js
+      size: 3105
+      hash: e6f5ab9d8f1a
+    - path: src/lib/git.js
+      size: 2441
+      hash: dd645bf04dec
+    - path: src/lib/graph.js
+      size: 6705
+      hash: 0aea91403cf5
+  note: Showing 20/41 files. Full list in architecture/graph.yaml
+level5: >-
+  Use `engineering explain --file <path>` for function/class details (requires AST parsing —
+  INFERRED until implemented)
+level6: >-
+  Actual source code lives in repository. Context system avoids loading all files; request specific
+  file via read.
+generatedAt: '2026-08-27T19:11:56.605Z'

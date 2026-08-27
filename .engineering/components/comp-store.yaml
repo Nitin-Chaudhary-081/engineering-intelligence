@@ -1,0 +1,7 @@
+id: comp-store
+name: Store
+type: component
+description: YAML store
+files:
+  - src/lib/store.js
+status: VERIFIED

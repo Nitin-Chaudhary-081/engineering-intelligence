@@ -1,0 +1,33 @@
+id: R-026
+title: /engineering entry point exists
+description: CLI bin/engineering.js + skill SKILL.md for 3 agents
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: bin/engineering.js
+    kind: FACT
+    details: file exists
+  - type: CODE
+    source: skills/engineering/SKILL.md
+    kind: FACT
+    details: file exists
+  - type: CODE
+    source: .claude/skills/engineering/SKILL.md
+    kind: FACT
+    details: file exists
+  - type: CODE
+    source: .agents/skills/engineering/SKILL.md
+    kind: FACT
+    details: file exists
+  - type: CODE
+    source: .opencode/skills/engineering/SKILL.md
+    kind: FACT
+    details: file exists
+files:
+  - bin/engineering.js
+  - skills/engineering/SKILL.md
+  - .claude/skills/engineering/SKILL.md
+  - .agents/skills/engineering/SKILL.md
+  - .opencode/skills/engineering/SKILL.md
+risk: MEDIUM
+createdAt: '2026-08-27T19:13:31.069Z'

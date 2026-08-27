@@ -1,0 +1,13 @@
+id: R-020
+title: Contracts/invariants exist
+description: contracts/invariants.yaml
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/contracts.js
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/contracts.js
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

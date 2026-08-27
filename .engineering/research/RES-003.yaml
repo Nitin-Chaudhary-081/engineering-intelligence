@@ -1,0 +1,14 @@
+id: RES-003
+topic: Codex Skills
+question: How Codex discovers skills
+sources:
+  - url: https://github.com/openai/skills
+    title: Codex Skills
+    kind: FACT
+findings:
+  - >-
+    Uses .agents/skills or ~/.codex/skills, SKILL.md with description, AGENTS.md for project
+    conventions
+confidence: medium
+kind: FACT
+createdAt: '2026-08-27T19:13:31.069Z'

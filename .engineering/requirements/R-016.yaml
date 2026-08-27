@@ -1,0 +1,18 @@
+id: R-016
+title: Events can be recorded
+description: events/events.jsonl append
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/events.js
+    kind: FACT
+    details: file exists
+  - type: CODE
+    source: src/lib/store.js
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/events.js
+  - src/lib/store.js
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

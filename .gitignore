@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+
+# Engineering state (keep structure, ignore runtime snapshots)
+.engineering/snapshots/
+.engineering/runtime/logs/
+.engineering/events/*.log
+
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+secrets.yaml
+secrets.yml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build
+dist/
+build/
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
+
+# Temp
+tmp/
+temp/
+.tmp/

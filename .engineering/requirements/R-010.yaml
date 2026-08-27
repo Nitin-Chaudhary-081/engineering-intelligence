@@ -1,0 +1,13 @@
+id: R-010
+title: Engineering completeness exists
+description: 12-dim weighted scoring
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/progress.js
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/progress.js
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

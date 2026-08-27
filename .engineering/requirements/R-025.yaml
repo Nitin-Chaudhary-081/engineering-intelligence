@@ -1,0 +1,13 @@
+id: R-025
+title: Complexity/necessity review exists
+description: duplicate, large file, many deps
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/complexity.js
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/complexity.js
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

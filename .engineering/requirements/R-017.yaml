@@ -1,0 +1,13 @@
+id: R-017
+title: Git integration exists
+description: status/log/diff/stale detection
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/git.js
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/git.js
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

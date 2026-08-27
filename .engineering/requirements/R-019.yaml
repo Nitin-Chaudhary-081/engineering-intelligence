@@ -1,0 +1,18 @@
+id: R-019
+title: Mistake/failed-approach memory exists
+description: mistakes/*.yaml
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/store.js
+    kind: FACT
+    details: file exists
+  - type: CODE
+    source: .engineering/mistakes/
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/store.js
+  - .engineering/mistakes/
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

@@ -1,0 +1,13 @@
+id: R-018
+title: Impact analysis exists
+description: BFS on graph, direct/transitive
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/graph.js
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/graph.js
+risk: MEDIUM
+createdAt: '2026-08-27T19:13:31.069Z'

@@ -1,0 +1,18 @@
+id: R-006
+title: Architecture can be represented
+description: architecture/graph.yaml with nodes/edges
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/graph.js
+    kind: FACT
+    details: file exists
+  - type: CODE
+    source: .engineering/architecture/graph.yaml
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/graph.js
+  - .engineering/architecture/graph.yaml
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

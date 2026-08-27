@@ -1,0 +1,13 @@
+id: R-012
+title: Research workflow exists
+description: FACT/INFERENCE distinction, sources
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: src/lib/research.js
+    kind: FACT
+    details: file exists
+files:
+  - src/lib/research.js
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'

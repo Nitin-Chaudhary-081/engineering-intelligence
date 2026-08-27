@@ -1,0 +1,21 @@
+id: R-001
+title: Engineering Intelligence skill exists
+description: Core skill with /engineering entry point and .engineering state
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: bin/engineering.js
+    kind: FACT
+    details: CLI exists
+  - type: TEST
+    source: tests/store.test.js
+    kind: FACT
+    details: tests pass 28/28
+  - type: COMMAND
+    source: npm test
+    kind: FACT
+files:
+  - bin/engineering.js
+  - src/lib/store.js
+risk: MEDIUM
+createdAt: '2026-08-27T19:11:56.692Z'

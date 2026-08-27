@@ -1,0 +1,470 @@
+project:
+  name: engineering-intelligence
+  type: javascript-project
+  description: Engineering Intelligence — portable skill + evidence-backed state for AI agents
+  root: /home/ubuntu/engineering-intelligence
+currentObjective: 'Dogfood self: complete Definition-of-Done checklist, verify all subsystems'
+currentArchitecture:
+  type: javascript-project
+  languages:
+    counts:
+      markdown: 8
+      javascript: 28
+      json: 5
+    primary: javascript
+    totalFiles: 41
+  frameworks: []
+  components:
+    - CLI
+    - Graph
+    - Security
+    - Store
+  graphSummary:
+    nodes: 41
+    edges: 96
+completedWork:
+  - Engineering Intelligence skill exists
+  - Universal engineering-state format exists
+  - Repository-local .engineering state works
+  - Existing repositories can be analyzed
+  - Requirements can be tracked
+  - Architecture can be represented
+  - Dependencies can be represented
+  - File/component relationships tracked
+  - Engineering completeness exists
+  - Risk classification exists
+  - Research workflow exists
+  - Evidence model exists
+  - Security model exists
+  - Runtime observations can be recorded
+  - Events can be recorded
+  - Git integration exists
+  - Impact analysis exists
+  - Mistake/failed-approach memory exists
+  - Contracts/invariants exist
+  - Conflict detection exists
+  - AI handoff exists
+  - Hierarchical context exists
+  - Human explanation levels exist
+  - Complexity/necessity review exists
+  - /engineering entry point exists
+incompleteWork:
+  - id: R-008
+    title: Data flow can be represented
+    status: PARTIALLY_IMPLEMENTED
+knownBugs: []
+knownFailedApproaches:
+  - problem: Security audit false FAILED due to test fixture containing secret pattern
+    doNotRepeat: Add allow-list for test fixtures or use synthetic tokens that avoid secret regex
+importantDecisions:
+  - id: ADR-001
+    title: Use .engineering directory with YAML
+    reason: Git-friendly, human-readable, machine-consumable. Portable with repo.
+    alternatives:
+      - JSON only
+      - SQLite
+      - External service
+    tradeoffs: YAML is verbose but diff-friendly; no external service needed
+    research: Checked agentskills.io compatibility
+    evidence:
+      - type: CODE
+        source: .engineering/manifest.yaml
+        kind: FACT
+    confidence: high
+    date: '2026-08-27'
+constraints:
+  - id: INV-001
+    invariant: Secrets must never be committed
+    severity: CRITICAL
+    check: no_secret_in_repo
+  - id: INV-002
+    invariant: Passwords must never be logged
+    severity: CRITICAL
+    check: no_password_logging
+  - id: INV-003
+    invariant: Public APIs must remain backward compatible
+    severity: HIGH
+    check: manual
+  - id: INV-004
+    invariant: Payments must never be processed twice
+    severity: CRITICAL
+    check: idempotency
+  - id: INV-005
+    invariant: Tenant A must never access Tenant B data
+    severity: CRITICAL
+    check: tenant_isolation
+  - id: INV-006
+    invariant: Every database migration must be reversible
+    severity: HIGH
+    check: migration_reversible
+invariants:
+  - id: INV-001
+    invariant: Secrets must never be committed
+    severity: CRITICAL
+    check: no_secret_in_repo
+  - id: INV-002
+    invariant: Passwords must never be logged
+    severity: CRITICAL
+    check: no_password_logging
+  - id: INV-003
+    invariant: Public APIs must remain backward compatible
+    severity: HIGH
+    check: manual
+  - id: INV-004
+    invariant: Payments must never be processed twice
+    severity: CRITICAL
+    check: idempotency
+  - id: INV-005
+    invariant: Tenant A must never access Tenant B data
+    severity: CRITICAL
+    check: tenant_isolation
+  - id: INV-006
+    invariant: Every database migration must be reversible
+    severity: HIGH
+    check: migration_reversible
+securityRequirements:
+  - id: SEC-AUTH-001
+    claim: Authentication exists
+    status: IMPLEMENTED
+    evidence:
+      - type: CODE
+        source: static scan
+        kind: FACT
+        details: Pattern matched for Authentication exists
+    verified: false
+  - id: SEC-INJECTION-001
+    claim: SQL injection protection exists
+    status: IMPLEMENTED
+    evidence:
+      - type: CODE
+        source: static scan
+        kind: FACT
+        details: Pattern matched for SQL injection protection exists
+    verified: false
+  - id: SEC-SECRETS-001
+    claim: Secrets not committed
+    status: VERIFIED
+    evidence:
+      - type: CODE
+        source: scan
+        kind: FACT
+        details: No secret patterns detected in sampled files
+    verified: true
+  - id: SEC-VALIDATION-001
+    claim: Input validation exists
+    status: IMPLEMENTED
+    evidence:
+      - type: CODE
+        source: static scan
+        kind: FACT
+        details: Pattern matched for Input validation exists
+    verified: false
+  - id: SEC-DEPS-001
+    claim: Dependencies have no known vulnerabilities
+    status: VERIFIED
+    evidence:
+      - type: COMMAND
+        source: npm audit
+        kind: FACT
+        details: 0 vulnerabilities
+    verified: true
+runtimeState:
+  timestamp: '2026-08-27T19:13:54.746Z'
+  tests:
+    ran: true
+    output: |-
+
+      > engineering-intelligence@0.1.0 test
+      > node --test tests/*.test.js
+
+      TAP version 13
+      # Subtest: evidence
+          # Subtest: UNKNOWN when no evidence
+          ok 1 - UNKNOWN when no evidence
+            ---
+            duration_ms: 1.309213
+            ...
+          # Subtest: VERIFIED with code+fact
+          ok 2 - VERIFIED with code+fact
+            ---
+            duration_ms: 0.759617
+            ...
+          # Subtest: IMPLEMENTED with fact but not runtime
+          ok 3 - IMPLEMENTED with fact but not runtime
+            ---
+            duration_ms: 0.334075
+            ...
+          # Subtest: security claim stays UNKNOWN if only docs
+          ok 4 - security claim stays UNKNOWN if only docs
+            ---
+            duration_ms: 0.42089
+            ...
+          # Subtest: does NOT mark UNKNOWN as VERIFIED
+          ok 5 - does NOT mark UNKNOWN as VERIFIED
+            ---
+            duration_ms: 0.337588
+            ...
+          1..5
+      ok 1 - evidence
+        ---
+        duration_ms: 8.358031
+        type: 'suite'
+        ...
+      # Subtest: graph
+          # Subtest: extractImports js
+          ok 1 - extractImports js
+            ---
+            duration_ms: 1.706235
+            ...
+          # Subtest: buildGraph and impact
+          ok 2 - buildGraph and impact
+            ---
+            duration_ms: 11.069028
+            ...
+          # Subtest: detect cycles
+          ok 3 - detect cycles
+            ---
+            duration_ms: 0.912134
+            ...
+          # Subtest: no false cycles
+          ok 4 - no false cycles
+            ---
+            duration_ms: 2.066109
+            ...
+          1..4
+      ok 2 - graph
+        ---
+        duration_ms: 20.953929
+        type: 'suite'
+        ...
+      # Subtest: handoff
+          # Subtest: generates handoff with required fields
+          ok 1 - generates handoff with required fields
+            ---
+            duration_ms: 30.955354
+            ...
+          1..1
+      ok 3 - handoff
+        ---
+        duration_ms: 35.398097
+        type: 'suite'
+        ...
+      # Subtest: progress
+          # Subtest: computes weighted completeness
+          ok 1 - computes weighted completeness
+            ---
+            duration_ms: 1.970243
+            ...
+          # Subtest: caps without evidence
+          ok 2 - caps without evidence
+            ---
+            duration_ms: 1.189542
+            ...
+          # Subtest: low dims handled
+          ok 3 - low dims handled
+            ---
+       
+    status: PASS
+  startup: null
+  dependencies: null
+  codeExists: true
+  codeWorks: VERIFIED
+  systemVerified: PARTIAL
+  note: CODE EXISTS != CODE WORKS. Run full verification for SYSTEM VERIFIED.
+recentChanges:
+  - timestamp: '2026-08-27T19:13:53.993Z'
+    type: verification
+    summary: Verified 26/32 claims
+    metadata:
+      total: 32
+      verified: 26
+      implemented: 4
+      unknown: 1
+      failed: 0
+      conflicting: 0
+  - timestamp: '2026-08-27T19:13:57.743Z'
+    type: verification
+    summary: 'Runtime observed: VERIFIED'
+    metadata:
+      timestamp: '2026-08-27T19:13:54.746Z'
+      tests:
+        ran: true
+        output: |-
+
+          > engineering-intelligence@0.1.0 test
+          > node --test tests/*.test.js
+
+          TAP version 13
+          # Subtest: evidence
+              # Subtest: UNKNOWN when no evidence
+              ok 1 - UNKNOWN when no evidence
+                ---
+                duration_ms: 1.309213
+                ...
+              # Subtest: VERIFIED with code+fact
+              ok 2 - VERIFIED with code+fact
+                ---
+                duration_ms: 0.759617
+                ...
+              # Subtest: IMPLEMENTED with fact but not runtime
+              ok 3 - IMPLEMENTED with fact but not runtime
+                ---
+                duration_ms: 0.334075
+                ...
+              # Subtest: security claim stays UNKNOWN if only docs
+              ok 4 - security claim stays UNKNOWN if only docs
+                ---
+                duration_ms: 0.42089
+                ...
+              # Subtest: does NOT mark UNKNOWN as VERIFIED
+              ok 5 - does NOT mark UNKNOWN as VERIFIED
+                ---
+                duration_ms: 0.337588
+                ...
+              1..5
+          ok 1 - evidence
+            ---
+            duration_ms: 8.358031
+            type: 'suite'
+            ...
+          # Subtest: graph
+              # Subtest: extractImports js
+              ok 1 - extractImports js
+                ---
+                duration_ms: 1.706235
+                ...
+              # Subtest: buildGraph and impact
+              ok 2 - buildGraph and impact
+                ---
+                duration_ms: 11.069028
+                ...
+              # Subtest: detect cycles
+              ok 3 - detect cycles
+                ---
+                duration_ms: 0.912134
+                ...
+              # Subtest: no false cycles
+              ok 4 - no false cycles
+                ---
+                duration_ms: 2.066109
+                ...
+              1..4
+          ok 2 - graph
+            ---
+            duration_ms: 20.953929
+            type: 'suite'
+            ...
+          # Subtest: handoff
+              # Subtest: generates handoff with required fields
+              ok 1 - generates handoff with required fields
+                ---
+                duration_ms: 30.955354
+                ...
+              1..1
+          ok 3 - handoff
+            ---
+            duration_ms: 35.398097
+            type: 'suite'
+            ...
+          # Subtest: progress
+              # Subtest: computes weighted completeness
+              ok 1 - computes weighted completeness
+                ---
+                duration_ms: 1.970243
+                ...
+              # Subtest: caps without evidence
+              ok 2 - caps without evidence
+                ---
+                duration_ms: 1.189542
+                ...
+              # Subtest: low dims handled
+              ok 3 - low dims handled
+                ---
+           
+        status: PASS
+      startup: null
+      dependencies: null
+      codeExists: true
+      codeWorks: VERIFIED
+      systemVerified: PARTIAL
+      note: CODE EXISTS != CODE WORKS. Run full verification for SYSTEM VERIFIED.
+  - timestamp: '2026-08-27T19:13:58.155Z'
+    type: security_finding
+    summary: 'Security audit: 1 verified, 0 failed'
+    metadata:
+      total: 5
+      verified: 1
+      failed: 0
+      unknown: 1
+  - timestamp: '2026-08-27T19:13:58.609Z'
+    type: verification
+    summary: Verified 26/32 claims
+    metadata:
+      total: 32
+      verified: 26
+      implemented: 4
+      unknown: 1
+      failed: 0
+      conflicting: 0
+  - timestamp: '2026-08-27T19:14:00.147Z'
+    type: verification
+    summary: 'Complexity check: 0 issues'
+    metadata:
+      info: 0
+      warning: 0
+      review: 0
+      block: 0
+  - timestamp: '2026-08-27T19:14:34.255Z'
+    type: verification
+    summary: Verified 26/32 claims
+    metadata:
+      total: 32
+      verified: 26
+      implemented: 4
+      unknown: 1
+      failed: 0
+      conflicting: 0
+  - timestamp: '2026-08-27T19:15:34.980Z'
+    type: security_finding
+    summary: 'Security audit: 1 verified, 0 failed'
+    metadata:
+      total: 5
+      verified: 1
+      failed: 0
+      unknown: 1
+  - timestamp: '2026-08-27T19:15:35.466Z'
+    type: verification
+    summary: Verified 26/32 claims
+    metadata:
+      total: 32
+      verified: 26
+      implemented: 4
+      unknown: 1
+      failed: 0
+      conflicting: 0
+  - timestamp: '2026-08-27T19:16:14.187Z'
+    type: security_finding
+    summary: 'Security audit: 2 verified, 0 failed'
+    metadata:
+      total: 5
+      verified: 2
+      failed: 0
+      unknown: 0
+  - timestamp: '2026-08-27T19:17:07.925Z'
+    type: verification
+    summary: Verified 27/32 claims
+    metadata:
+      total: 32
+      verified: 27
+      implemented: 4
+      unknown: 0
+      failed: 0
+      conflicting: 0
+unverifiedAssumptions: []
+conflicts: []
+highestRisks: []
+nextRecommendedActions:
+  - 'Implement R-008: Data flow can be represented'
+  - Review mistake memory before retrying failed approaches
+generatedAt: '2026-08-27T19:17:08.627Z'
+evidencePolicy: All claims require evidence; UNKNOWN is valid. See evidence.yaml

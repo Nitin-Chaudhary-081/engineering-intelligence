@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Engineering Manifest",
+  "type": "object",
+  "required": ["schemaVersion", "projectName", "projectType", "created", "updated"],
+  "properties": {
+    "schemaVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "projectName": { "type": "string", "minLength": 1 },
+    "projectType": { "type": "string" },
+    "description": { "type": "string" },
+    "created": { "type": "string", "format": "date-time" },
+    "updated": { "type": "string", "format": "date-time" },
+    "currentObjective": { "type": "string" },
+    "engineeringStateVersion": { "type": "integer" },
+    "evidencePolicy": { "type": "string", "enum": ["evidence_required", "lenient"] }
+  }
+}

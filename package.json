@@ -1,0 +1,49 @@
+{
+  "name": "engineering-intelligence",
+  "version": "0.1.0",
+  "description": "Engineering Intelligence Skill — persistent engineering-state layer for AI coding agents",
+  "type": "module",
+  "bin": {
+    "engineering": "./bin/engineering.js",
+    "eng": "./bin/engineering.js"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "test:coverage": "node --test --experimental-test-coverage tests/*.test.js",
+    "lint": "node --check bin/engineering.js src/**/*.js",
+    "verify": "node bin/engineering.js verify",
+    "handoff": "node bin/engineering.js handoff"
+  },
+  "keywords": [
+    "engineering-intelligence",
+    "ai",
+    "coding-agent",
+    "claude-code",
+    "codex",
+    "opencode",
+    "agent-skills",
+    "software-architecture",
+    "evidence",
+    "handoff"
+  ],
+  "author": "Engineering Intelligence Contributors",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/example/engineering-intelligence"
+  },
+  "bugs": {
+    "url": "https://github.com/example/engineering-intelligence/issues"
+  },
+  "homepage": "https://github.com/example/engineering-intelligence#readme",
+  "opencode": {
+    "skills": ["engineering"]
+  }
+}

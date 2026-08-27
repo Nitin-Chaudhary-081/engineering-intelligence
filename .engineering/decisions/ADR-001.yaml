@@ -1,0 +1,15 @@
+id: ADR-001
+title: Use .engineering directory with YAML
+reason: Git-friendly, human-readable, machine-consumable. Portable with repo.
+alternatives:
+  - JSON only
+  - SQLite
+  - External service
+tradeoffs: YAML is verbose but diff-friendly; no external service needed
+research: Checked agentskills.io compatibility
+evidence:
+  - type: CODE
+    source: .engineering/manifest.yaml
+    kind: FACT
+confidence: high
+date: '2026-08-27'

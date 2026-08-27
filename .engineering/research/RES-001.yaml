@@ -1,0 +1,17 @@
+id: RES-001
+topic: Claude Code Skills
+question: How Claude Code discovers SKILL.md
+sources:
+  - url: https://code.claude.com/docs/en/skills
+    title: Claude Skills Docs
+    kind: FACT
+  - url: https://agentskills.io
+    title: AgentSkills Spec
+    kind: FACT
+findings:
+  - >-
+    Skills are folder with SKILL.md, frontmatter name/description, loaded via skill tool, project
+    .claude/skills and global
+confidence: high
+kind: FACT
+createdAt: '2026-08-27T19:13:31.069Z'

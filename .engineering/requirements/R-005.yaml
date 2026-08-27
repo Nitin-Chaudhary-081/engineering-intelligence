@@ -1,0 +1,18 @@
+id: R-005
+title: Requirements can be tracked
+description: requirements/*.yaml with trace to implementation/tests/evidence
+status: VERIFIED
+evidence:
+  - type: CODE
+    source: .engineering/requirements/R-001.yaml
+    kind: FACT
+    details: file exists
+  - type: CODE
+    source: src/lib/store.js
+    kind: FACT
+    details: file exists
+files:
+  - .engineering/requirements/R-001.yaml
+  - src/lib/store.js
+risk: LOW
+createdAt: '2026-08-27T19:13:31.069Z'
