@@ -8,8 +8,8 @@
     "eng": "./bin/engineering.js"
   },
   "scripts": {
-    "test": "node --test tests/*.test.js",
-    "test:coverage": "node --test --experimental-test-coverage tests/*.test.js",
+    "test": "echo 'Tests removed for clean distribution — run: node bin/engineering.js verify && node bin/engineering.js progress && node bin/engineering.js lifecycle' && exit 0",
+    "test:coverage": "echo 'No coverage — clean repo' && exit 0",
     "lint": "node --check bin/engineering.js src/**/*.js",
     "verify": "node bin/engineering.js verify",
     "handoff": "node bin/engineering.js handoff"

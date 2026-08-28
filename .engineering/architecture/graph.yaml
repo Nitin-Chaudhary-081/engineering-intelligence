@@ -24,8 +24,8 @@ nodes:
     label: README.md
     path: README.md
     ext: .md
-    size: 9211
-    hash: 9ece07446da0
+    size: 9582
+    hash: ef4891c3765e
     language: md
     evidence: CODE
     verification: VERIFIED
@@ -44,8 +44,8 @@ nodes:
     label: engineering.js
     path: bin/engineering.js
     ext: .js
-    size: 32421
-    hash: 92be6075247d
+    size: 32069
+    hash: c5469909c194
     language: js
     evidence: CODE
     verification: VERIFIED
@@ -124,8 +124,8 @@ nodes:
     label: package.json
     path: package.json
     ext: .json
-    size: 1346
-    hash: 97684e13d6d2
+    size: 1472
+    hash: e78b012cf1c6
     language: json
     evidence: CODE
     verification: VERIFIED
@@ -134,8 +134,8 @@ nodes:
     label: SKILL.md
     path: skills/engineering/SKILL.md
     ext: .md
-    size: 4956
-    hash: fafecda3c75b
+    size: 8147
+    hash: b85e5f513d3d
     language: md
     evidence: CODE
     verification: VERIFIED
@@ -234,8 +234,8 @@ nodes:
     label: handoff.js
     path: src/lib/handoff.js
     ext: .js
-    size: 5445
-    hash: fc4ccab77ad9
+    size: 6909
+    hash: dad117f34feb
     language: js
     evidence: CODE
     verification: VERIFIED
@@ -264,8 +264,8 @@ nodes:
     label: lifecycle-scanner.js
     path: src/lib/lifecycle-scanner.js
     ext: .js
-    size: 9764
-    hash: a42aeb916c0a
+    size: 10317
+    hash: a10911aa44d2
     language: js
     evidence: CODE
     verification: VERIFIED
@@ -397,86 +397,6 @@ nodes:
     size: 1170
     hash: cccb71adae2d
     language: json
-    evidence: CODE
-    verification: VERIFIED
-  - id: tests/evidence.test.js
-    type: File
-    label: evidence.test.js
-    path: tests/evidence.test.js
-    ext: .js
-    size: 2054
-    hash: ffa90bc08b32
-    language: js
-    evidence: CODE
-    verification: VERIFIED
-  - id: tests/graph.test.js
-    type: File
-    label: graph.test.js
-    path: tests/graph.test.js
-    ext: .js
-    size: 1974
-    hash: 5d598e057c18
-    language: js
-    evidence: CODE
-    verification: VERIFIED
-  - id: tests/handoff.test.js
-    type: File
-    label: handoff.test.js
-    path: tests/handoff.test.js
-    ext: .js
-    size: 1162
-    hash: 712d302d6cfe
-    language: js
-    evidence: CODE
-    verification: VERIFIED
-  - id: tests/progress.test.js
-    type: File
-    label: progress.test.js
-    path: tests/progress.test.js
-    ext: .js
-    size: 1646
-    hash: e0fc3420cea4
-    language: js
-    evidence: CODE
-    verification: VERIFIED
-  - id: tests/risk.test.js
-    type: File
-    label: risk.test.js
-    path: tests/risk.test.js
-    ext: .js
-    size: 997
-    hash: b81c5483970d
-    language: js
-    evidence: CODE
-    verification: VERIFIED
-  - id: tests/security.test.js
-    type: File
-    label: security.test.js
-    path: tests/security.test.js
-    ext: .js
-    size: 1172
-    hash: 70ae989d4303
-    language: js
-    evidence: CODE
-    verification: VERIFIED
-  - id: tests/store.test.js
-    type: File
-    label: store.test.js
-    path: tests/store.test.js
-    ext: .js
-    size: 1992
-    hash: 0889a7df75a9
-    language: js
-    evidence: CODE
-    verification: VERIFIED
-  - id: tests/verify.test.js
-    type: File
-    label: verify.test.js
-    path: tests/verify.test.js
-    ext: .js
-    size: 2077
-    hash: 12edad1e4ec5
-    language: js
     evidence: CODE
     verification: VERIFIED
 edges:
@@ -704,200 +624,4 @@ edges:
     to: src/lib/constants.js
     relationship: imports
     evidence: INFERRED
-  - from: tests/evidence.test.js
-    to: node:test
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/evidence.test.js
-    to: node:assert/strict
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/evidence.test.js
-    to: src/lib/evidence.js
-    relationship: imports
-    evidence: INFERRED
-  - from: tests/evidence.test.js
-    to: src/lib/constants.js
-    relationship: imports
-    evidence: INFERRED
-  - from: tests/graph.test.js
-    to: node:test
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/graph.test.js
-    to: node:assert/strict
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/graph.test.js
-    to: node:fs
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/graph.test.js
-    to: node:path
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/graph.test.js
-    to: node:os
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/graph.test.js
-    to: src/lib/graph.js
-    relationship: imports
-    evidence: INFERRED
-  - from: tests/graph.test.js
-    to: tests/bar
-    relationship: imports
-    evidence: INFERRED
-  - from: tests/graph.test.js
-    to: lodash
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/graph.test.js
-    to: dynamic
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/graph.test.js
-    to: tests/b.js
-    relationship: imports
-    evidence: INFERRED
-  - from: tests/graph.test.js
-    to: tests/c.js
-    relationship: imports
-    evidence: INFERRED
-  - from: tests/graph.test.js
-    to: tests/y.js
-    relationship: imports
-    evidence: INFERRED
-  - from: tests/handoff.test.js
-    to: node:test
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/handoff.test.js
-    to: node:assert/strict
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/handoff.test.js
-    to: node:fs
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/handoff.test.js
-    to: node:path
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/handoff.test.js
-    to: node:os
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/handoff.test.js
-    to: src/lib/store.js
-    relationship: imports
-    evidence: INFERRED
-  - from: tests/handoff.test.js
-    to: src/lib/handoff.js
-    relationship: imports
-    evidence: INFERRED
-  - from: tests/progress.test.js
-    to: node:test
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/progress.test.js
-    to: node:assert/strict
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/progress.test.js
-    to: src/lib/progress.js
-    relationship: imports
-    evidence: INFERRED
-  - from: tests/risk.test.js
-    to: node:test
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/risk.test.js
-    to: node:assert/strict
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/risk.test.js
-    to: src/lib/risk.js
-    relationship: imports
-    evidence: INFERRED
-  - from: tests/security.test.js
-    to: node:test
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/security.test.js
-    to: node:assert/strict
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/security.test.js
-    to: node:fs
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/security.test.js
-    to: node:path
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/security.test.js
-    to: node:os
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/security.test.js
-    to: src/lib/security.js
-    relationship: imports
-    evidence: INFERRED
-  - from: tests/store.test.js
-    to: node:test
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/store.test.js
-    to: node:assert/strict
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/store.test.js
-    to: node:fs
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/store.test.js
-    to: node:path
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/store.test.js
-    to: node:os
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/store.test.js
-    to: src/lib/store.js
-    relationship: imports
-    evidence: INFERRED
-  - from: tests/store.test.js
-    to: src/lib/evidence.js
-    relationship: imports
-    evidence: INFERRED
-  - from: tests/verify.test.js
-    to: node:test
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/verify.test.js
-    to: node:assert/strict
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/verify.test.js
-    to: node:fs
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/verify.test.js
-    to: node:path
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/verify.test.js
-    to: node:os
-    relationship: depends_on
-    evidence: INFERRED
-  - from: tests/verify.test.js
-    to: src/lib/store.js
-    relationship: imports
-    evidence: INFERRED
-  - from: tests/verify.test.js
-    to: src/lib/verify.js
-    relationship: imports
-    evidence: INFERRED
-builtAt: '2026-08-28T08:06:59.779Z'
+builtAt: '2026-08-28T08:27:06.668Z'

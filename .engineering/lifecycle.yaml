@@ -3,10 +3,7 @@ project:
   name: engineering-intelligence
   type: javascript-project
   category: software
-  summary: >-
-    engineering-intelligence — Engineering Intelligence — portable skill + evidence-backed state for
-    AI agents. Type: javascript-project (software). Primary: javascript (markdown, javascript,
-    json), frameworks: none, files: 48, deps: 1.
+  summary: engineering-intelligence — javascript markdown, javascript, json
 lifecycleModel:
   id: javascript-project
   name: JavaScript Project
@@ -152,22 +149,21 @@ nextActions:
         details: file exists
 evidenceLinks:
   - type: CODE
-    source: .engineering/manifest.yaml
-    kind: FACT
-    details: Manifest exists
-  - type: CODE
     source: .engineering/project.yaml
     kind: FACT
-    details: Project analysis
+    details: Synced javascript-project
   - type: CODE
     source: .engineering/architecture/graph.yaml
     kind: FACT
-    details: Graph 48 files
+    details: 40 files
 evidencePolicy: All claims require evidence; UNKNOWN is valid. See VERIFICATION_STATES.
 history:
   - timestamp: '2026-08-28T08:06:59.939Z'
     type: lifecycle_created
     summary: Lifecycle initialized with model javascript-project (medium confidence)
     model: javascript-project
+  - timestamp: '2026-08-28T08:27:06.805Z'
+    type: sync
+    summary: 'Synced: 40 files, type javascript-project'
 generatedAt: '2026-08-28T08:06:59.939Z'
-updatedAt: '2026-08-28T08:06:59.939Z'
+updatedAt: '2026-08-28T08:27:06.805Z'

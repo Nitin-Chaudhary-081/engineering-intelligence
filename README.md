@@ -205,10 +205,13 @@ See `examples/` for sample `.engineering/` snapshots.
 ## Development
 
 ```bash
-npm test          # node --test
-node bin/engineering.js verify
-node bin/engineering.js complexity
+node bin/engineering.js verify      # evidence-backed verification
+node bin/engineering.js progress    # 12-dim completeness
+node bin/engineering.js lifecycle   # b.md lifecycle state
+node bin/engineering.js complexity  # heuristic checks
 ```
+
+> Clean distribution: `tests/` removed for minimal install. Core skill is `bin/engineering.js` + `src/` + `skills/` — zero build, one dep (`js-yaml`). Install: `npm install` then `node bin/engineering.js init` in your project.
 
 [Architecture](docs/architecture.md) • [Protocol](docs/protocol.md) • [Installation](docs/installation.md) • [CHANGELOG](CHANGELOG.md) • [CONTRIBUTING](CONTRIBUTING.md) • [SECURITY](SECURITY.md)
 

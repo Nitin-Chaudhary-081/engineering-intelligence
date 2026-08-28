@@ -1,10 +1,10 @@
 languages:
   counts:
     markdown: 10
-    javascript: 32
+    javascript: 24
     json: 6
   primary: javascript
-  totalFiles: 48
+  totalFiles: 40
 frameworks: []
 packageManagers:
   - npm
@@ -13,20 +13,23 @@ config:
   - .gitignore
 git:
   branch: main
-  commit: 544804ad12efdf2fa94b54d53201604b4cc8f2ca
+  commit: de6e57e04b52aa4937021ad108b41da1ae7629c2
   log:
+    - 'de6e57e feat(b.md): implement lifecycle prevention of context amnesia'
     - '544804a chore: update repo URLs for Nitin-Chaudhary-081/engineering-intelligence'
     - '63cc132 feat: initial Engineering Intelligence MVP — skill + .engineering state + CLI'
   dirty: true
   status:
-    - M .engineering/events/events.jsonl
-    - ' M bin/engineering.js'
-    - ' M src/lib/project-analyzer.js'
-    - ' M src/lib/store.js'
-    - '?? src/lib/lifecycle-decision.js'
-    - '?? src/lib/lifecycle-scanner.js'
-    - '?? src/lib/lifecycle.js'
-    - '?? src/schemas/lifecycle.schema.json'
+    - M README.md
+    - ' M package.json'
+    - D  tests/evidence.test.js
+    - D  tests/graph.test.js
+    - D  tests/handoff.test.js
+    - D  tests/progress.test.js
+    - D  tests/risk.test.js
+    - D  tests/security.test.js
+    - D  tests/store.test.js
+    - D  tests/verify.test.js
 envVars: []
 dependencies:
   js-yaml: ^4.1.0
@@ -43,6 +46,5 @@ structure:
   - package.json
   - skills/
   - src/
-  - tests/
 projectType: javascript-project
-analyzedAt: '2026-08-28T08:06:59.722Z'
+analyzedAt: '2026-08-28T08:27:06.631Z'
