@@ -21,6 +21,9 @@ import { generateHandoff, handoffToMarkdown } from '../src/lib/handoff.js';
 import { buildContext, getContextForLevel } from '../src/lib/context.js';
 import { observeRuntime } from '../src/lib/runtime.js';
 import { VERIFICATION_STATES, RISK_LEVELS } from '../src/lib/constants.js';
+import { scanLifecycleSystems, analyzeLifecycleConflicts, shouldCreateNewLifecycle } from '../src/lib/lifecycle-scanner.js';
+import { selectLifecycleModel } from '../src/lib/lifecycle-decision.js';
+import { buildInitialLifecycle, getLifecycleSummary, updateLifecyclePhase } from '../src/lib/lifecycle.js';
 
 const VERSION = '0.1.0';
 
@@ -41,6 +44,7 @@ Commands:
   progress                                 Engineering completeness
   handoff [--md]                           Generate AI-to-AI handoff
   research <topic>                         Record research (stub)
+  lifecycle [--phase <id>]                 Show or update lifecycle phase
   sync                                     Sync state from current codebase (re-analyze)
   events [--limit N]                       Show recent events
   complexity                               Complexity / necessity review
@@ -53,6 +57,8 @@ Examples:
   engineering status
   engineering explain
   engineering impact src/lib/store.js
+  engineering lifecycle
+  engineering lifecycle --phase implementation
   engineering handoff --md
   engineering verify
 `);
@@ -75,6 +81,26 @@ async function cmdInit(args) {
   const typeIdx = args.indexOf('--type');
   const name = nameIdx !== -1 ? args[nameIdx + 1] : path.basename(cwd);
   const type = typeIdx !== -1 ? args[typeIdx + 1] : undefined;
+
+  // b.md Core behavior 1-5: scan for existing lifecycle systems before creating new
+  console.log('🔍 Scanning for existing lifecycle/state systems...');
+  const detected = scanLifecycleSystems(cwd);
+  const conflicts = analyzeLifecycleConflicts(detected);
+  const shouldCreate = shouldCreateNewLifecycle(detected);
+  if (detected.length) {
+    console.log(`   Found ${detected.length} existing state system(s):`);
+    for (const d of detected) console.log(`   - ${d.type}: ${d.path} — ${d.description}`);
+    if (conflicts.length) {
+      console.log(`   ⚠️ Conflicts detected (${conflicts.length}):`);
+      for (const c of conflicts) console.log(`     ${c.type}: ${c.message}`);
+    }
+    console.log(`   → ${shouldCreate.reason}`);
+    if (!shouldCreate.create) {
+      console.log('   Preserving existing system; .engineering will be created as primary with history preserved.');
+    }
+  } else {
+    console.log('   No existing lifecycle system — will create new .engineering/lifecycle.yaml');
+  }
 
   console.log('🔍 Analyzing project...');
   const projectInfo = analyzeProject(cwd);
@@ -104,8 +130,20 @@ async function cmdInit(args) {
   store.setContext(buildContext(store, projectInfo, graph, null));
   // Handoff
   store.setHandoff(generateHandoff(store, projectInfo, graph, null, null, []));
+  // Lifecycle (b.md deliverable 2 & 4 — decision engine + lifecycle state file)
+  const lifecycleModel = selectLifecycleModel(projectInfo, cwd);
+  if (type) {
+    // override if user passed --type
+    lifecycleModel.modelId = type;
+    lifecycleModel.reason = `User override --type ${type}`;
+  }
+  const lifecycle = buildInitialLifecycle({ store, projectInfo, lifecycleModel, graph, detectedSystems: detected });
+  store.setLifecycle(lifecycle);
+  console.log(`🧬 Lifecycle: ${lifecycleModel.modelId} (${lifecycleModel.confidence}) — ${lifecycleModel.reason}`);
+  console.log(`   Phase: ${lifecycle.currentPhase} (${lifecycle.phases.find(p=>p.id===lifecycle.currentPhase)?.name})`);
   // Event
   store.appendEvent({ type: 'architecture_changed', summary: 'Initialized engineering state', files: [], actor: 'engineering-cli' });
+  store.appendEvent({ type: 'decision', summary: `Lifecycle model ${lifecycleModel.modelId} selected: ${lifecycleModel.reason}`, metadata: lifecycleModel });
 
   // Create example requirement / decision / mistake if none
   if (store.listRequirements().length === 0) {
@@ -152,6 +190,7 @@ function cmdStatus() {
   const events = store.getEvents(5);
   const progress = store.getProgress();
   const sec = store.getSecurity();
+  const lifecycle = store.getLifecycle();
 
   console.log(`\n📦 ${manifest.projectName} (${manifest.projectType}) v${manifest.schemaVersion}`);
   console.log(`   Created: ${manifest.created}  Updated: ${manifest.updated}`);
@@ -160,6 +199,13 @@ function cmdStatus() {
   console.log(`   Languages: ${project?.languages?.primary || 'unknown'} ${JSON.stringify(project?.languages?.counts||{})}`);
   console.log(`   Frameworks: ${(project?.frameworks||[]).join(', ')||'none'}`);
   console.log(`   Graph: ${graph?.nodes?.length||0} files, ${graph?.edges?.length||0} edges`);
+  if (lifecycle) {
+    const summary = getLifecycleSummary(lifecycle);
+    console.log(`\n🧬 Lifecycle: ${lifecycle.lifecycleModel.name} (${lifecycle.lifecycleModel.id}) [${lifecycle.lifecycleModel.confidence}]`);
+    console.log(`   Phase: ${summary.phaseName} (${summary.currentPhase}) — ${summary.completedPhases}/${summary.totalPhases} phases done`);
+    console.log(`   Risks: ${summary.risksOpen} open, Tasks: ${summary.tasksOpen} open, Decisions: ${summary.decisions}`);
+    console.log(`   Next: ${(lifecycle.nextActions||[]).slice(0,2).map(a=>a.task).join(' | ')||'none'}`);
+  }
   console.log(`\n📋 Requirements: ${reqs.length}  Components: ${comps.length}  Decisions: ${decisions.length}`);
   for (const r of reqs.slice(0,5)) console.log(`   - ${r.data.id}: ${r.data.title} [${r.data.status}]`);
   if (reqs.length>5) console.log(`   ... +${reqs.length-5} more`);
@@ -168,6 +214,10 @@ function cmdStatus() {
   console.log(`\n🕒 Recent events:`);
   for (const e of events) console.log(`   ${e.timestamp.slice(0,19)} ${e.type} — ${e.summary}`);
   if (events.length===0) console.log('   (none)');
+  // b.md acceptance: 5-min understandability — show lifecycle evidence only if conflicts
+  const detected = scanLifecycleSystems(store.rootDir);
+  const lcConflicts = analyzeLifecycleConflicts(detected);
+  if (lcConflicts.length) console.log(`\n⚠️ ${lcConflicts.length} lifecycle conflict(s) — run \`engineering verify\` for details`);
   console.log('');
 }
 
@@ -258,6 +308,19 @@ function cmdVerify() {
   const graph = store.getArchitecture();
   const { results, summary } = verifyAll(store, project, graph);
   const conflicts = detectConflicts(store);
+  // b.md: detect multiple lifecycle systems as additional verification
+  const detected = scanLifecycleSystems(store.rootDir);
+  const lifecycleConflicts = analyzeLifecycleConflicts(detected);
+  const lifecycle = store.getLifecycle();
+  if (!lifecycle) {
+    results.push({ id: 'LIFECYCLE-001', title: 'Lifecycle state exists', status: 'UNKNOWN', reason: 'Unknown; verification evidence does not exist. No .engineering/lifecycle.yaml found', evidenceCount: 0 });
+    summary.unknown++;
+    summary.total++;
+  } else {
+    results.push({ id: 'LIFECYCLE-001', title: 'Lifecycle state exists', status: 'VERIFIED', reason: `Lifecycle ${lifecycle.lifecycleModel.id} in phase ${lifecycle.currentPhase}`, evidenceCount: 1 });
+    summary.verified++;
+    summary.total++;
+  }
   console.log(`\n🔍 Verification`);
   for (const r of results) {
     const icon = r.status === 'VERIFIED' ? '✅' : r.status === 'UNKNOWN' ? '❓' : r.status === 'FAILED' ? '❌' : r.status === 'CONFLICTING' ? '💥' : '⚠️';
@@ -267,6 +330,13 @@ function cmdVerify() {
   if (conflicts.length) {
     console.log(`\n💥 Conflicts:`);
     for (const c of conflicts) console.log(` - ${c.type}: ${JSON.stringify(c)}`);
+  }
+  if (lifecycleConflicts.length) {
+    console.log(`\n💥 Lifecycle Conflicts (b.md: multiple systems):`);
+    for (const c of lifecycleConflicts) console.log(` - ${c.type} [${c.severity}]: ${c.message}`);
+  }
+  if (detected.length) {
+    console.log(`\n📂 Detected state systems (${detected.length}): ${detected.map(d=>d.path).join(', ')}`);
   }
   if (summary.unknown>0) console.log(`\nPrefer "Unknown; verification evidence does not exist." over hallucinating.`);
   store.appendEvent({ type: 'verification', summary: `Verified ${summary.verified}/${summary.total} claims`, metadata: summary });
@@ -373,6 +443,51 @@ function cmdResearch(args) {
   console.log(JSON.stringify(research, null, 2));
 }
 
+function cmdLifecycle(args) {
+  const store = resolveStore(process.cwd());
+  if (!store.isInitialized()) { console.log('Not initialized. Run `engineering init`'); return; }
+  const lifecycle = store.getLifecycle();
+  if (!lifecycle) { console.log('No lifecycle — run engineering init or sync'); return; }
+  const phaseIdx = args.indexOf('--phase');
+  if (phaseIdx !== -1) {
+    const newPhase = args[phaseIdx+1];
+    if (!newPhase) { console.log('Usage: engineering lifecycle --phase <phaseId>'); console.log(`Available: ${lifecycle.phases.map(p=>p.id).join(', ')}`); return; }
+    try {
+      const updated = updateLifecyclePhase(lifecycle, newPhase, `Manual phase change via CLI`);
+      store.setLifecycle(updated);
+      store.appendEvent({ type: 'decision', summary: `Lifecycle phase ${newPhase} entered`, metadata: { from: lifecycle.currentPhase, to: newPhase } });
+      console.log(`✅ Lifecycle phase updated: ${newPhase} (${updated.phases.find(p=>p.id===newPhase)?.name})`);
+      console.log(JSON.stringify(getLifecycleSummary(updated), null, 2));
+    } catch (e) {
+      console.error(`❌ ${e.message}`);
+      console.log(`Available: ${lifecycle.phases.map(p=>`${p.id} (${p.status})`).join(', ')}`);
+    }
+    return;
+  }
+  // Show lifecycle
+  console.log(`\n🧬 Lifecycle — ${lifecycle.project.name} (${lifecycle.lifecycleModel.id})`);
+  console.log(`Current: ${lifecycle.currentPhase} — ${lifecycle.phases.find(p=>p.id===lifecycle.currentPhase)?.name}`);
+  console.log(`Model: ${lifecycle.lifecycleModel.name} [${lifecycle.lifecycleModel.confidence}] — ${lifecycle.lifecycleModel.reason}`);
+  console.log(`\nSummary: ${lifecycle.project.summary}`);
+  console.log(`\nPhases:`);
+  for (const p of lifecycle.phases) console.log(`  ${p.status==='IN_PROGRESS'?'▶':p.status==='COMPLETED'?'✓':'○'} ${p.id.padEnd(15)} ${p.name.padEnd(20)} [${p.status}]`);
+  console.log(`\nRisks & Bottlenecks (${lifecycle.risksAndBottlenecks.length}):`);
+  for (const r of lifecycle.risksAndBottlenecks.slice(0,5)) console.log(`  - ${r.id}: ${r.description} [${r.status}]`);
+  console.log(`\nAssumptions (${lifecycle.assumptions.length}):`);
+  for (const a of lifecycle.assumptions) console.log(`  - ${a.id}: ${a.description} [${a.kind}]`);
+  console.log(`\nOpen Questions (${lifecycle.openQuestions.length}):`);
+  for (const q of lifecycle.openQuestions) console.log(`  - ${q.id}: ${q.question} [${q.status}]`);
+  console.log(`\nOpen Tasks (${lifecycle.openTasks.length}):`);
+  for (const t of lifecycle.openTasks.slice(0,5)) console.log(`  - ${t.id}: ${t.title||t.task} [${t.status}]`);
+  console.log(`\nNext Actions:`);
+  for (const n of lifecycle.nextActions.slice(0,5)) console.log(`  - ${n.task||n.title} [${n.priority||n.status}]`);
+  console.log(`\nEvidence Links: ${lifecycle.evidenceLinks.map(e=>e.source).join(', ')}`);
+  console.log(`\nHistory (${lifecycle.history.length}):`);
+  for (const h of lifecycle.history.slice(-5)) console.log(`  ${h.timestamp.slice(0,19)} ${h.type}: ${h.summary}`);
+  console.log(`\nDetected systems: ${(lifecycle.detectedSystems||[]).map(d=>d.path).join(', ')||'none'}`);
+  console.log(`Updated: ${lifecycle.updatedAt}`);
+}
+
 function cmdSync() {
   const store = resolveStore(process.cwd());
   if (!store.isInitialized()) { console.log('Not initialized'); return; }
@@ -382,6 +497,27 @@ function cmdSync() {
   const graph = buildGraph(store.rootDir);
   store.setArchitecture(graph);
   store.setContext(buildContext(store, project, graph, null));
+  // b.md: preserve lifecycle history, update summary but do not overwrite blindly
+  const existingLifecycle = store.getLifecycle();
+  if (existingLifecycle) {
+    // update summary/sync evidence but keep phase/history
+    existingLifecycle.project.summary = `${store.getManifest()?.projectName || project.projectType} — ${project.languages.primary} ${Object.keys(project.languages.counts).join(', ')}`;
+    existingLifecycle.updatedAt = new Date().toISOString();
+    existingLifecycle.evidenceLinks = [
+      { type: 'CODE', source: '.engineering/project.yaml', kind: 'FACT', details: `Synced ${project.projectType}` },
+      { type: 'CODE', source: '.engineering/architecture/graph.yaml', kind: 'FACT', details: `${graph.nodes.length} files` },
+    ];
+    existingLifecycle.history.push({ timestamp: new Date().toISOString(), type: 'sync', summary: `Synced: ${graph.nodes.length} files, type ${project.projectType}` });
+    store.setLifecycle(existingLifecycle);
+    console.log(`🧬 Lifecycle preserved: ${existingLifecycle.lifecycleModel.id} @ ${existingLifecycle.currentPhase}`);
+  } else {
+    // create if missing (legacy repo)
+    const detected = scanLifecycleSystems(store.rootDir);
+    const model = selectLifecycleModel(project, store.rootDir);
+    const lc = buildInitialLifecycle({ store, projectInfo: project, lifecycleModel: model, graph, detectedSystems: detected });
+    store.setLifecycle(lc);
+    console.log(`🧬 Lifecycle created: ${model.modelId}`);
+  }
   store.touchManifest();
   store.appendEvent({ type: 'architecture_changed', summary: 'Synced state from codebase', files: [] });
   console.log(`✅ Synced: ${graph.nodes.length} files, ${graph.edges.length} edges, type ${project.projectType}`);
@@ -451,6 +587,7 @@ else if (cmd === 'security' || cmd === 'audit') cmdSecurity();
 else if (cmd === 'progress') cmdProgress();
 else if (cmd === 'handoff') cmdHandoff(args.slice(1));
 else if (cmd === 'research') cmdResearch(args.slice(1));
+else if (cmd === 'lifecycle') cmdLifecycle(args.slice(1));
 else if (cmd === 'sync') cmdSync();
 else if (cmd === 'events') cmdEvents(args.slice(1));
 else if (cmd === 'complexity') cmdComplexity();

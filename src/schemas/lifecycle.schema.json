@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Engineering Lifecycle",
+  "type": "object",
+  "required": ["schemaVersion", "project", "lifecycleModel", "currentPhase", "phases"],
+  "properties": {
+    "schemaVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "project": {
+      "type": "object",
+      "required": ["name", "type", "summary"],
+      "properties": {
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "category": { "type": "string", "enum": ["software", "automation", "robotics", "unknown"] },
+        "summary": { "type": "string" }
+      }
+    },
+    "lifecycleModel": {
+      "type": "object",
+      "required": ["id", "name", "reason", "confidence"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "reason": { "type": "string" },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low", "UNVERIFIED"] },
+        "hints": { "type": "object" }
+      }
+    },
+    "detectedSystems": { "type": "array", "items": { "type": "object" } },
+    "currentPhase": { "type": "string" },
+    "currentStage": { "type": "string" },
+    "phases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "status"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "status": { "type": "string", "enum": ["NOT_STARTED", "IN_PROGRESS", "COMPLETED", "BLOCKED", "SKIPPED"] },
+          "enteredAt": { "type": ["string", "null"], "format": "date-time" },
+          "completedAt": { "type": ["string", "null"], "format": "date-time" },
+          "evidence": { "type": "array" }
+        }
+      }
+    },
+    "keyDecisions": { "type": "array", "items": { "type": "object" } },
+    "risksAndBottlenecks": { "type": "array", "items": { "type": "object" } },
+    "assumptions": { "type": "array", "items": { "type": "object" } },
+    "openQuestions": { "type": "array", "items": { "type": "object" } },
+    "openTasks": { "type": "array", "items": { "type": "object" } },
+    "nextActions": { "type": "array", "items": { "type": "object" } },
+    "evidenceLinks": { "type": "array", "items": { "type": "object" } },
+    "evidencePolicy": { "type": "string" },
+    "history": { "type": "array", "items": { "type": "object" } },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  }
+}

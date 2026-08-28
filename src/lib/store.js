@@ -156,6 +156,10 @@ export class Store {
   getHandoff() { return this.readYaml('handoff.yaml', null); }
   setHandoff(data) { this.writeYaml('handoff.yaml', data); }
 
+  // Lifecycle (b.md: project lifecycle/state file)
+  getLifecycle() { return this.readYaml('lifecycle.yaml', null); }
+  setLifecycle(data) { this.writeYaml('lifecycle.yaml', data); }
+
   // Events
   appendEvent(evt) { this.appendJsonl('events/events.jsonl', { timestamp: new Date().toISOString(), ...evt }); }
   getEvents(limit = 100) { const all = this.readJsonl('events/events.jsonl'); return all.slice(-limit); }

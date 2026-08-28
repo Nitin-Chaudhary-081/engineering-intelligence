@@ -1,0 +1,173 @@
+schemaVersion: 1.0.0
+project:
+  name: engineering-intelligence
+  type: javascript-project
+  category: software
+  summary: >-
+    engineering-intelligence — Engineering Intelligence — portable skill + evidence-backed state for
+    AI agents. Type: javascript-project (software). Primary: javascript (markdown, javascript,
+    json), frameworks: none, files: 48, deps: 1.
+lifecycleModel:
+  id: javascript-project
+  name: JavaScript Project
+  category: software
+  reason: >-
+    projectType javascript-project mapped to javascript-project (primary: javascript, frameworks:
+    none)
+  confidence: medium
+  hints:
+    roboticsHints: []
+    automationHints: []
+detectedSystems:
+  - type: engineering-state
+    path: .engineering/manifest.yaml
+    description: Engineering Intelligence state (.engineering/)
+  - type: handoff
+    path: .engineering/handoff.yaml
+    description: Engineering handoff
+  - type: architecture
+    path: .engineering/architecture/graph.yaml
+    description: Architecture graph
+  - type: architecture
+    path: docs/architecture.md
+    description: docs/architecture.md
+  - type: agent-state
+    path: .claude/skills
+    description: Claude skills
+  - type: agent-state
+    path: .agents/skills
+    description: Codex agents skills
+  - type: agent-state
+    path: .opencode/skills
+    description: OpenCode skills
+currentPhase: init
+currentStage: active
+phases:
+  - id: init
+    name: Initialization
+    description: Repo scanned, .engineering bootstrapped
+    status: IN_PROGRESS
+    enteredAt: '2026-08-28T08:06:59.939Z'
+    completedAt: null
+    evidence:
+      - type: CODE
+        source: .engineering/manifest.yaml
+        kind: FACT
+        details: Lifecycle initialized
+  - id: planning
+    name: Planning
+    description: Requirements and architecture defined
+    status: NOT_STARTED
+    enteredAt: null
+    completedAt: null
+    evidence: []
+  - id: implementation
+    name: Implementation
+    description: Code + tests being built
+    status: NOT_STARTED
+    enteredAt: null
+    completedAt: null
+    evidence: []
+  - id: verification
+    name: Verification
+    description: Tests, security, runtime checks
+    status: NOT_STARTED
+    enteredAt: null
+    completedAt: null
+    evidence: []
+  - id: release
+    name: Release
+    description: Docs, handoff, deployment
+    status: NOT_STARTED
+    enteredAt: null
+    completedAt: null
+    evidence: []
+keyDecisions:
+  - id: ADR-001
+    title: Use .engineering directory with YAML
+    rationale: Git-friendly, human-readable, machine-consumable. Portable with repo.
+    evidence:
+      - type: CODE
+        source: .engineering/manifest.yaml
+        kind: FACT
+    date: '2026-08-27'
+risksAndBottlenecks:
+  - id: RISK-001
+    description: Missing tests
+    category: default
+    impact: medium
+    mitigation: TBD — define mitigation and link evidence
+    status: OPEN
+    evidence: []
+    kind: INFERENCE
+  - id: RISK-002
+    description: Secrets leakage
+    category: default
+    impact: medium
+    mitigation: TBD — define mitigation and link evidence
+    status: OPEN
+    evidence: []
+    kind: INFERENCE
+  - id: RISK-003
+    description: Dependency vulnerabilities
+    category: default
+    impact: medium
+    mitigation: TBD — define mitigation and link evidence
+    status: OPEN
+    evidence: []
+    kind: INFERENCE
+assumptions:
+  - id: A-001
+    description: Lifecycle state is durable and version-controlled in .engineering/
+    kind: FACT
+    evidence:
+      - type: CODE
+        source: .engineering/lifecycle.yaml
+        kind: FACT
+    status: VERIFIED
+openQuestions:
+  - id: Q-001
+    question: What is the next verifiable milestone?
+    status: OPEN
+    evidence: []
+openTasks:
+  - id: R-008
+    title: Data flow can be represented
+    status: PARTIALLY_IMPLEMENTED
+    priority: LOW
+    evidence:
+      - type: CODE
+        source: .engineering/architecture/dataflow.yaml
+        kind: FACT
+        details: file exists
+nextActions:
+  - id: R-008
+    task: Data flow can be represented
+    priority: LOW
+    status: PARTIALLY_IMPLEMENTED
+    evidence:
+      - type: CODE
+        source: .engineering/architecture/dataflow.yaml
+        kind: FACT
+        details: file exists
+evidenceLinks:
+  - type: CODE
+    source: .engineering/manifest.yaml
+    kind: FACT
+    details: Manifest exists
+  - type: CODE
+    source: .engineering/project.yaml
+    kind: FACT
+    details: Project analysis
+  - type: CODE
+    source: .engineering/architecture/graph.yaml
+    kind: FACT
+    details: Graph 48 files
+evidencePolicy: All claims require evidence; UNKNOWN is valid. See VERIFICATION_STATES.
+history:
+  - timestamp: '2026-08-28T08:06:59.939Z'
+    type: lifecycle_created
+    summary: Lifecycle initialized with model javascript-project (medium confidence)
+    model: javascript-project
+generatedAt: '2026-08-28T08:06:59.939Z'
+updatedAt: '2026-08-28T08:06:59.939Z'

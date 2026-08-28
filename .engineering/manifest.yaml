@@ -1,11 +1,9 @@
 schemaVersion: 1.0.0
 projectName: engineering-intelligence
 projectType: javascript-project
-description: "Engineering Intelligence \u2014 portable skill + evidence-backed state\
-  \ for AI agents"
+description: Engineering Intelligence — portable skill + evidence-backed state for AI agents
 created: '2026-08-27T19:11:56.434Z'
-updated: '2026-08-27T19:14:52.551222Z'
+updated: '2026-08-28T08:06:59.959Z'
 engineeringStateVersion: 1
 evidencePolicy: evidence_required
-currentObjective: 'Dogfood self: complete Definition-of-Done checklist, verify all
-  subsystems'
+currentObjective: 'Dogfood self: complete Definition-of-Done checklist, verify all subsystems'

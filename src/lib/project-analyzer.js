@@ -136,6 +136,17 @@ export function getEnvVars(rootDir) {
 }
 
 export function inferProjectType(languages, frameworks, files) {
+  // Robotics hints (b.md: automation/robotics project types) — priority before generic software
+  const hasRos = files.includes('package.xml') || files.includes('platformio.ini') || files.some(f => f.endsWith('.urdf') || f.endsWith('.ino'));
+  if (hasRos) return 'robotics-project';
+  const hasAutomation = files.includes('Makefile') || files.includes('Dockerfile') || files.includes('docker-compose.yml') || files.includes('docker-compose.yaml') || files.includes('Jenkinsfile');
+  const hasWorkflows = files.includes('.github');
+  if (hasAutomation && frameworks.length === 0 && ['unknown','shell','python','javascript'].includes(languages.primary)) {
+    if (languages.primary !== 'python' || !files.includes('requirements.txt')) return 'automation-project';
+  }
+  if (hasWorkflows && frameworks.length === 0 && !files.includes('package.json') && !files.includes('pyproject.toml')) {
+    return 'automation-project';
+  }
   if (frameworks.includes('next.js')) return 'web-saas-nextjs';
   if (frameworks.includes('nestjs')) return 'web-saas-nestjs';
   if (frameworks.includes('express') || frameworks.includes('fastify')) return 'web-api';

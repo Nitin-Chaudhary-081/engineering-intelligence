@@ -1,6 +1,6 @@
 # Handoff — engineering-intelligence
 
-> Generated 2026-08-27T19:17:08.627Z — compact AI-to-AI transfer
+> Generated 2026-08-28T08:09:30.685Z — compact AI-to-AI transfer
 
 ## Project
 - **Name:** engineering-intelligence
@@ -12,9 +12,18 @@ Dogfood self: complete Definition-of-Done checklist, verify all subsystems
 
 ## Architecture
 - Type: javascript-project
-- Languages: {"counts":{"markdown":8,"javascript":28,"json":5},"primary":"javascript","totalFiles":41}
+- Languages: {"counts":{"markdown":10,"javascript":32,"json":6},"primary":"javascript","totalFiles":48}
 - Frameworks: none
-- Graph: 41 files, 96 edges
+- Graph: 48 files, 105 edges
+
+## Lifecycle (b.md — 5-min transfer)
+- **Model:** JavaScript Project (javascript-project) [medium] — projectType javascript-project mapped to javascript-project (primary: javascript, frameworks: none)
+- **Current Phase:** Initialization (init) — updated 2026-08-28T08:06:59.939Z
+- **Phases:** init[IN_PROGRESS] → planning[NOT_STARTED] → implementation[NOT_STARTED] → verification[NOT_STARTED] → release[NOT_STARTED]
+- **Risks:** Missing tests; Secrets leakage; Dependency vulnerabilities
+- **Next Actions:** Data flow can be represented
+- **Evidence:** .engineering/manifest.yaml, .engineering/project.yaml, .engineering/architecture/graph.yaml
+
 
 ## Completed Work
 - Engineering Intelligence skill exists
@@ -86,16 +95,16 @@ Dogfood self: complete Definition-of-Done checklist, verify all subsystems
 ```
 
 ## Recent Changes
-- 2026-08-27T19:13:53.993Z verification: Verified 26/32 claims
-- 2026-08-27T19:13:57.743Z verification: Runtime observed: VERIFIED
-- 2026-08-27T19:13:58.155Z security_finding: Security audit: 1 verified, 0 failed
-- 2026-08-27T19:13:58.609Z verification: Verified 26/32 claims
-- 2026-08-27T19:14:00.147Z verification: Complexity check: 0 issues
-- 2026-08-27T19:14:34.255Z verification: Verified 26/32 claims
 - 2026-08-27T19:15:34.980Z security_finding: Security audit: 1 verified, 0 failed
 - 2026-08-27T19:15:35.466Z verification: Verified 26/32 claims
 - 2026-08-27T19:16:14.187Z security_finding: Security audit: 2 verified, 0 failed
 - 2026-08-27T19:17:07.925Z verification: Verified 27/32 claims
+- 2026-08-27T19:28:27.352Z verification: Verified 27/32 claims
+- 2026-08-28T08:06:35.669Z verification: Verified 27/33 claims
+- 2026-08-28T08:06:59.963Z architecture_changed: Synced state from codebase
+- 2026-08-28T08:07:04.912Z verification: Verified 28/33 claims
+- 2026-08-28T08:07:19.805Z verification: Verified 28/33 claims
+- 2026-08-28T08:08:54.274Z verification: Verified 28/33 claims
 
 ## Highest Risks
 None flagged

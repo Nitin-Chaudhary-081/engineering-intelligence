@@ -24,8 +24,8 @@ nodes:
     label: README.md
     path: README.md
     ext: .md
-    size: 9199
-    hash: 0abb1e39eef8
+    size: 9211
+    hash: 9ece07446da0
     language: md
     evidence: CODE
     verification: VERIFIED
@@ -44,8 +44,8 @@ nodes:
     label: engineering.js
     path: bin/engineering.js
     ext: .js
-    size: 22339
-    hash: ec551c6ca572
+    size: 32421
+    hash: 92be6075247d
     language: js
     evidence: CODE
     verification: VERIFIED
@@ -79,6 +79,36 @@ nodes:
     language: md
     evidence: CODE
     verification: VERIFIED
+  - id: examples/README.md
+    type: File
+    label: README.md
+    path: examples/README.md
+    ext: .md
+    size: 288
+    hash: 5d32efd2154e
+    language: md
+    evidence: CODE
+    verification: VERIFIED
+  - id: examples/simple-project/README.md
+    type: File
+    label: README.md
+    path: examples/simple-project/README.md
+    ext: .md
+    size: 64
+    hash: cc7fb2d05b8a
+    language: md
+    evidence: CODE
+    verification: VERIFIED
+  - id: examples/simple-project/src/index.js
+    type: File
+    label: index.js
+    path: examples/simple-project/src/index.js
+    ext: .js
+    size: 56
+    hash: bf7d739cd347
+    language: js
+    evidence: CODE
+    verification: VERIFIED
   - id: package-lock.json
     type: File
     label: package-lock.json
@@ -94,8 +124,8 @@ nodes:
     label: package.json
     path: package.json
     ext: .json
-    size: 1310
-    hash: 9ab9ccd96004
+    size: 1346
+    hash: 97684e13d6d2
     language: json
     evidence: CODE
     verification: VERIFIED
@@ -219,6 +249,36 @@ nodes:
     language: js
     evidence: CODE
     verification: VERIFIED
+  - id: src/lib/lifecycle-decision.js
+    type: File
+    label: lifecycle-decision.js
+    path: src/lib/lifecycle-decision.js
+    ext: .js
+    size: 12960
+    hash: 0ffcea365b38
+    language: js
+    evidence: CODE
+    verification: VERIFIED
+  - id: src/lib/lifecycle-scanner.js
+    type: File
+    label: lifecycle-scanner.js
+    path: src/lib/lifecycle-scanner.js
+    ext: .js
+    size: 9764
+    hash: a42aeb916c0a
+    language: js
+    evidence: CODE
+    verification: VERIFIED
+  - id: src/lib/lifecycle.js
+    type: File
+    label: lifecycle.js
+    path: src/lib/lifecycle.js
+    ext: .js
+    size: 6596
+    hash: 3fc326b9a3b6
+    language: js
+    evidence: CODE
+    verification: VERIFIED
   - id: src/lib/progress.js
     type: File
     label: progress.js
@@ -234,8 +294,8 @@ nodes:
     label: project-analyzer.js
     path: src/lib/project-analyzer.js
     ext: .js
-    size: 8166
-    hash: 39ea5584bc65
+    size: 9093
+    hash: ea1c32ae0ac7
     language: js
     evidence: CODE
     verification: VERIFIED
@@ -274,8 +334,8 @@ nodes:
     label: security.js
     path: src/lib/security.js
     ext: .js
-    size: 4247
-    hash: 4d62e4c88d65
+    size: 5485
+    hash: 341b7deaca94
     language: js
     evidence: CODE
     verification: VERIFIED
@@ -284,8 +344,8 @@ nodes:
     label: store.js
     path: src/lib/store.js
     ext: .js
-    size: 7166
-    hash: 17ff0cfb119b
+    size: 7351
+    hash: e6b87a346c1a
     language: js
     evidence: CODE
     verification: VERIFIED
@@ -306,6 +366,16 @@ nodes:
     ext: .json
     size: 1202
     hash: 21814a44c282
+    language: json
+    evidence: CODE
+    verification: VERIFIED
+  - id: src/schemas/lifecycle.schema.json
+    type: File
+    label: lifecycle.schema.json
+    path: src/schemas/lifecycle.schema.json
+    ext: .json
+    size: 2598
+    hash: b5f7390d51c2
     language: json
     evidence: CODE
     verification: VERIFIED
@@ -479,6 +549,18 @@ edges:
     relationship: imports
     evidence: INFERRED
   - from: bin/engineering.js
+    to: src/lib/lifecycle-scanner.js
+    relationship: imports
+    evidence: INFERRED
+  - from: bin/engineering.js
+    to: src/lib/lifecycle-decision.js
+    relationship: imports
+    evidence: INFERRED
+  - from: bin/engineering.js
+    to: src/lib/lifecycle.js
+    relationship: imports
+    evidence: INFERRED
+  - from: bin/engineering.js
     to: src/lib/contracts.js
     relationship: imports
     evidence: INFERRED
@@ -526,6 +608,26 @@ edges:
     to: node:crypto
     relationship: depends_on
     evidence: INFERRED
+  - from: src/lib/lifecycle-decision.js
+    to: node:fs
+    relationship: depends_on
+    evidence: INFERRED
+  - from: src/lib/lifecycle-decision.js
+    to: node:path
+    relationship: depends_on
+    evidence: INFERRED
+  - from: src/lib/lifecycle-scanner.js
+    to: node:fs
+    relationship: depends_on
+    evidence: INFERRED
+  - from: src/lib/lifecycle-scanner.js
+    to: node:path
+    relationship: depends_on
+    evidence: INFERRED
+  - from: src/lib/lifecycle.js
+    to: src/lib/constants.js
+    relationship: imports
+    evidence: INFERRED
   - from: src/lib/progress.js
     to: src/lib/constants.js
     relationship: imports
@@ -560,6 +662,10 @@ edges:
     evidence: INFERRED
   - from: src/lib/security.js
     to: node:path
+    relationship: depends_on
+    evidence: INFERRED
+  - from: src/lib/security.js
+    to: node:child_process
     relationship: depends_on
     evidence: INFERRED
   - from: src/lib/security.js
@@ -794,4 +900,4 @@ edges:
     to: src/lib/verify.js
     relationship: imports
     evidence: INFERRED
-builtAt: '2026-08-27T19:11:56.499Z'
+builtAt: '2026-08-28T08:06:59.779Z'

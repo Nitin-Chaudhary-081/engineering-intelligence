@@ -15,6 +15,7 @@ export function generateHandoff(store, projectInfo, graph, progress, security, e
   const incomplete = requirements.filter(r => r.data.status !== 'VERIFIED' && r.data.status !== 'IMPLEMENTED');
   const unverified = security?.findings?.filter(f => f.status === 'UNKNOWN') || [];
 
+  const lifecycle = store.getLifecycle ? store.getLifecycle() : null;
   const handoff = {
     project: {
       name: manifest?.projectName || 'unknown',
@@ -30,6 +31,18 @@ export function generateHandoff(store, projectInfo, graph, progress, security, e
       components: store.listComponents().map(c => c.data.name || c.data.id),
       graphSummary: { nodes: graph?.nodes?.length || 0, edges: graph?.edges?.length || 0 },
     },
+    lifecycle: lifecycle ? {
+      model: lifecycle.lifecycleModel,
+      currentPhase: lifecycle.currentPhase,
+      phaseName: lifecycle.phases.find(p=>p.id===lifecycle.currentPhase)?.name,
+      phases: lifecycle.phases.map(p=>({ id:p.id, name:p.name, status:p.status })),
+      risks: lifecycle.risksAndBottlenecks.slice(0,5),
+      assumptions: lifecycle.assumptions,
+      openQuestions: lifecycle.openQuestions,
+      nextActions: lifecycle.nextActions.slice(0,5),
+      evidenceLinks: lifecycle.evidenceLinks,
+      updatedAt: lifecycle.updatedAt,
+    } : null,
     completedWork: requirements.filter(r => r.data.status === 'VERIFIED').map(r => r.data.title || r.data.id),
     incompleteWork: incomplete.map(r => ({ id: r.data.id, title: r.data.title, status: r.data.status })),
     knownBugs: mistakes.filter(m => m.data.severity === 'bug').map(m => m.data),
@@ -79,6 +92,15 @@ ${handoff.currentObjective}
 - Languages: ${JSON.stringify(handoff.currentArchitecture.languages)}
 - Frameworks: ${(handoff.currentArchitecture.frameworks||[]).join(', ') || 'none'}
 - Graph: ${handoff.currentArchitecture.graphSummary.nodes} files, ${handoff.currentArchitecture.graphSummary.edges} edges
+${handoff.lifecycle ? `
+## Lifecycle (b.md — 5-min transfer)
+- **Model:** ${handoff.lifecycle.model.name} (${handoff.lifecycle.model.id}) [${handoff.lifecycle.model.confidence}] — ${handoff.lifecycle.model.reason}
+- **Current Phase:** ${handoff.lifecycle.phaseName || handoff.lifecycle.currentPhase} (${handoff.lifecycle.currentPhase}) — updated ${handoff.lifecycle.updatedAt || 'unknown'}
+- **Phases:** ${(handoff.lifecycle.phases||[]).map(p=>`${p.id}[${p.status}]`).join(' → ')}
+- **Risks:** ${(handoff.lifecycle.risks||handoff.lifecycle.risksAndBottlenecks||[]).map(r=>r.description).join('; ') || 'none'}
+- **Next Actions:** ${(handoff.lifecycle.nextActions||[]).map(a=>a.task||a.title).join('; ') || 'none'}
+- **Evidence:** ${(handoff.lifecycle.evidenceLinks||[]).map(e=>e.source).join(', ') || 'none'}
+` : ''}
 
 ## Completed Work
 ${handoff.completedWork.length ? handoff.completedWork.map(w=>`- ${w}`).join('\n') : '- None yet'}
