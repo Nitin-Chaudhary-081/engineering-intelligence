@@ -37,12 +37,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/example/engineering-intelligence"
+    "url": "https://github.com/Nitin-Chaudhary-081/engineering-intelligence"
   },
   "bugs": {
-    "url": "https://github.com/example/engineering-intelligence/issues"
+    "url": "https://github.com/Nitin-Chaudhary-081/engineering-intelligence/issues"
   },
-  "homepage": "https://github.com/example/engineering-intelligence#readme",
+  "homepage": "https://github.com/Nitin-Chaudhary-081/engineering-intelligence#readme",
   "opencode": {
     "skills": ["engineering"]
   }

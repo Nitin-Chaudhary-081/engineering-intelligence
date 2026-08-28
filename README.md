@@ -39,7 +39,7 @@ User: "Explain this project"
 
 ```bash
 # 1. get the skill
-git clone https://github.com/example/engineering-intelligence
+git clone https://github.com/Nitin-Chaudhary-081/engineering-intelligence
 cd engineering-intelligence && npm install
 
 # 2. use in any project
